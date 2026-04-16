@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新闻资讯 - 山东巅峰网络科技</title>
+    <meta name="keywords" content="电商新闻,客服行业资讯,电商热点,跨境电商,直播电商">
+    <meta name="description" content="山东巅峰网络科技有限公司新闻资讯频道，提供最新的电商行业动态、热点资讯、政策解读和趋势分析">
+    <meta name="baidu-site-verification" content="codeva-sjKTwsn8Ee">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: "Inter", "PingFang SC", "Microsoft YaHei", sans-serif; color: #333; background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 50%, #bfdbfe 100%); background-attachment: fixed; line-height: 1.6; min-height: 100vh; line-height: 1.6; }
+        a { text-decoration: none; color: inherit; }
+
+        /* 导航 */
+        .header {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+            background: rgba(255,255,255,0.95); backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+            box-shadow: 0 4px 30px rgba(0,0,0,0.05);
+        }
+        .header-inner {
+            max-width: 1200px; margin: 0 auto; height: 70px;
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 0 40px;
+        }
+        .logo-area { display: flex; align-items: center; gap: 10px; }
+        .logo-area img { height: 42px; width: 42px; object-fit: contain; border-radius: 8px; }
+        .logo-text { font-size: 18px; font-weight: 800; color: #1e1b4b; }
+        .logo-sub { font-size: 11px; color: #9ca3af; letter-spacing: 1px; }
+        .header-nav { display: flex; gap: 32px; }
+        .header-nav a { font-size: 17px; color: #6b7280; font-weight: 600; transition: color 0.3s; }
+        .header-nav a:hover, .header-nav a.active { color: #4f46e5; }
+        .header-btn {
+            background: linear-gradient(135deg, #4f46e5, #7c3aed);
+            color: #fff; padding: 10px 24px; border-radius: 10px;
+            font-size: 14px; font-weight: 600; transition: all 0.3s;
+        }
+        .header-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(79,70,229,0.35); }
+
+        /* 页面标题 */
+        .page-hero {
+            padding: 140px 40px 80px;
+            background: linear-gradient(135deg, #1e1b4b 0%, #4c1d95 50%, #6d28d9 100%);
+            text-align: center; position: relative; overflow: hidden;
+        }
+        .page-hero::before {
+            content: ''; position: absolute; inset: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        .page-hero h1 {
+            font-size: clamp(32px, 5vw, 52px); font-weight: 900; color: #fff;
+            margin-bottom: 16px; letter-spacing: -1px; position: relative;
+        }
+        .page-hero p { font-size: 18px; color: rgba(255,255,255,0.7); position: relative; }
+        .breadcrumb {
+            margin-top: 24px; display: flex; align-items: center; justify-content: center; gap: 8px;
+            font-size: 14px; color: rgba(255,255,255,0.5); position: relative;
+        }
+        .breadcrumb a { color: rgba(255,255,255,0.6); transition: color 0.3s; }
+        .breadcrumb a:hover { color: #fff; }
+
+        /* 内容区 */
+        .content { max-width: 1100px; margin: 0 auto; padding: 60px 40px; }
+
+        /* 分类标签 */
+        .category-tabs {
+            display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 40px;
+            justify-content: center;
+        }
+        .category-tab {
+            padding: 10px 24px; border-radius: 100px; font-size: 14px; font-weight: 600;
+            background: #fff; color: #6b7280; border: 1px solid rgba(0,0,0,0.08);
+            transition: all 0.3s; cursor: pointer;
+        }
+        .category-tab:hover, .category-tab.active {
+            background: linear-gradient(135deg, #4f46e5, #7c3aed);
+            color: #fff; border-color: transparent;
+        }
+        .category-tab[data-category].active {
+            background: linear-gradient(135deg, #4f46e5, #7c3aed);
+            color: #fff; border-color: transparent;
+        }
+
+        /* 热点新闻 */
+        .hot-news {
+            background: linear-gradient(135deg, rgba(79,70,229,0.06), rgba(168,85,247,0.06));
+            border-radius: 24px; padding: 40px; margin-bottom: 48px;
+            border: 1px solid rgba(79,70,229,0.1);
+        }
+        .hot-news.hidden { display: none; }
+        .hot-tag {
+            display: inline-block; background: linear-gradient(135deg, #4f46e5, #7c3aed);
+            color: #fff; padding: 6px 16px; border-radius: 100px; font-size: 12px; font-weight: 700;
+            margin-bottom: 20px;
+        }
+        .hot-title {
+            font-size: 24px; font-weight: 800; color: #1e1b4b; margin-bottom: 16px;
+            line-height: 1.4;
+        }
+        .hot-desc {
+            font-size: 15px; color: #6b7280; line-height: 1.8; margin-bottom: 20px;
+        }
+        .hot-meta { font-size: 13px; color: #9ca3af; }
+
+        /* 新闻网格 */
+        .news-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+            margin-bottom: 48px;
+        }
+        .news-card {
+            background: #fff; border-radius: 16px; overflow: hidden;
+            box-shadow: 0 4px 20px rgba(79,70,229,0.08);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); cursor: pointer;
+        }
+        .news-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 16px 48px rgba(79,70,229,0.15);
+        }
+        .news-card.hidden { display: none; }
+        .news-card-img {
+            height: 140px; display: flex; align-items: center; justify-content: center;
+        }
+        .news-card-body { padding: 20px; }
+        .news-card-date { font-size: 12px; color: #9ca3af; margin-bottom: 8px; }
+        .news-card-title {
+            font-size: 15px; font-weight: 700; color: #1e1b4b; margin-bottom: 10px;
+            line-height: 1.4;
+        }
+        .news-card-desc { font-size: 13px; color: #6b7280; line-height: 1.6; }
+
+        /* 双栏新闻 */
+        .news-row {
+            display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px;
+            margin-bottom: 48px;
+        }
+        .news-row-card {
+            background: #fff; border-radius: 16px; overflow: hidden;
+            box-shadow: 0 4px 20px rgba(79,70,229,0.08);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            display: flex; cursor: pointer;
+        }
+        .news-row-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 40px rgba(79,70,229,0.15);
+        }
+        .news-row-card.hidden { display: none; }
+        .news-row-img {
+            width: 120px; flex-shrink: 0; display: flex; align-items: center; justify-content: center;
+        }
+        .news-row-body { padding: 20px; }
+        .news-row-title {
+            font-size: 15px; font-weight: 700; color: #1e1b4b; margin-bottom: 8px; line-height: 1.4;
+        }
+        .news-row-desc { font-size: 13px; color: #6b7280; line-height: 1.5; }
+
+        /* 分类区块 */
+        .category-section { margin-bottom: 48px; }
+        .category-section.hidden { display: none; }
+        .category-title {
+            font-size: 20px; font-weight: 800; color: #1e1b4b; margin-bottom: 24px;
+            display: flex; align-items: center; gap: 12px;
+        }
+        .category-title::before {
+            content: ''; width: 4px; height: 24px;
+            background: linear-gradient(180deg, #4f46e5, #a855f7); border-radius: 2px;
+        }
+
+        /* CTA */
+        .cta-box {
+            background: linear-gradient(135deg, #4f46e5, #7c3aed);
+            border-radius: 24px; padding: 48px; text-align: center; margin-top: 60px;
+        }
+        .cta-box h3 { font-size: 26px; font-weight: 800; color: #fff; margin-bottom: 12px; }
+        .cta-box p { font-size: 15px; color: rgba(255,255,255,0.7); margin-bottom: 24px; }
+        .cta-box a {
+            display: inline-block; background: #fff; color: #4f46e5;
+            padding: 14px 32px; border-radius: 12px; font-size: 15px; font-weight: 700;
+            transition: all 0.3s;
+        }
+        .cta-box a:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(0,0,0,0.2); }
+
+
+        /* 悬浮回到主页按钮 */
+        .floating-home-btn {
+            position: fixed; right: 24px; bottom: 100px; z-index: 999;
+            width: 56px; height: 56px; border-radius: 50%;
+            background: linear-gradient(135deg, #10b981, #059669);
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 4px 20px rgba(16, 185, 129, 0.4);
+            cursor: pointer; transition: all 0.3s;
+            text-decoration: none;
+        }
+        .floating-home-btn:hover {
+            transform: translateY(-4px) scale(1.05);
+            box-shadow: 0 8px 30px rgba(16, 185, 129, 0.5);
+        }
+        .floating-home-btn svg { width: 26px; height: 26px; fill: #fff; }
+
+
+        /* 页脚 */
+        .footer {
+            background: #0f0e2a; color: rgba(255,255,255,0.65); padding: 48px 40px 24px;
+        }
+        .footer-content { max-width: 1000px; margin: 0 auto; text-align: center; }
+        .footer-logo { font-size: 18px; font-weight: 800; color: #fff; margin-bottom: 8px; }
+        .footer-text { font-size: 13px; color: rgba(255,255,255,0.4); }
+        .footer-copy { margin-top: 24px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.07); font-size: 12px; color: rgba(255,255,255,0.3); }
+
+        /* 响应式 */
+        @media screen and (max-width: 768px) {
+            .header-inner { padding: 0 16px; height: 60px; }
+            .header-nav { display: none; }
+            .page-hero { padding: 120px 16px 60px; }
+            .content { padding: 40px 16px; }
+            .hot-news { padding: 24px; }
+            .hot-title { font-size: 20px; }
+            .news-grid { grid-template-columns: 1fr; gap: 16px; }
+            .news-row { grid-template-columns: 1fr; gap: 16px; }
+            .news-row-card { flex-direction: column; }
+            .news-row-img { width: 100%; height: 120px; }
+            .cta-box { padding: 32px 20px; border-radius: 16px; }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航 -->
+    <header class="header">
+        <div class="header-inner">
+            <a href="/" class="logo-area">
+                <img src="./dianfeng-logo.jpg" alt="巅峰网络">
+                <div>
+                    <div class="logo-text">山东巅峰网络科技</div>
+                    <div class="logo-sub">DianFeng Network</div>
+                </div>
+            </a>
+            <nav class="header-nav">
+                <a href="/">首页</a>
+                <a href="/#services">核心优势</a>
+                <a href="/#business">业务服务</a>
+                <a href="/cases.html">客户案例</a>
+                <a href="/news.html" class="active">新闻资讯</a>
+                <a href="/about.html">关于我们</a>
+            </nav>
+            <a href="/#contact" class="header-btn">立即咨询</a>
+        </div>
+    </header>
+
+    <!-- 悬浮回到主页按钮 -->
+    <a href="/" class="floating-home-btn" title="回到主页">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+        </svg>
+    </a>
+
+
+    <!-- 页面标题 -->
+    <section class="page-hero">
+        <h1>新闻资讯</h1>
+        <p>行业动态 · 政策解读 · 趋势分析</p>
+        <div class="breadcrumb">
+            <a href="/">首页</a>
+            <span>/</span>
+            <span>新闻资讯</span>
+        </div>
+    </section>
+
+    <!-- 内容 -->
+    <section class="content">
+        <!-- 分类标签 -->
+        <div class="category-tabs">
+            <span class="category-tab active" data-category="all" onclick="filterNews('all')">全部</span>
+            <span class="category-tab" data-category="industry" onclick="filterNews('industry')">行业热点</span>
+            <span class="category-tab" data-category="policy" onclick="filterNews('policy')">政策解读</span>
+            <span class="category-tab" data-category="trend" onclick="filterNews('trend')">趋势分析</span>
+            <span class="category-tab" data-category="promo" onclick="filterNews('promo')">大促备战</span>
+        </div>
+
+        <!-- 热点新闻 -->
+        <div class="hot-news" data-categories="promo">
+            <span class="hot-tag">🔥 今日热点</span>
+            <h2 class="hot-title">618大促即将来袭，商家如何快速备战？</h2>
+            <p class="hot-desc">各大平台618预售即将开启，专家建议提前优化客服配置，确保大促期间响应速度，提升转化率。据悉，今年618将延续"双档位"机制，参与品牌和商家数量创新高。客服作为连接消费者与商家的关键纽带，其响应速度和服务质量直接影响店铺DSR评分和转化率。</p>
+            <div class="hot-meta">📅 2026年4月13日 &nbsp;&nbsp; 👁️ 阅读量 2.3万 &nbsp;&nbsp; 💬 评论 86</div>
+        </div>
+
+        <!-- 新闻网格 -->
+        <div class="category-section" id="industry-section">
+            <h3 class="category-title">行业热点</h3>
+            <div class="news-grid">
+                <div class="news-card" data-categories="industry">
+                    <div class="news-card-img" style="background:linear-gradient(135deg,#4f46e5,#7c3aed);">
+                        <span style="font-size:48px;">🤖</span>
+                    </div>
+                    <div class="news-card-body">
+                        <div class="news-card-date">2026年4月10日</div>
+                        <div class="news-card-title">AI客服崛起，电商服务进入智能时代</div>
+                        <div class="news-card-desc">AI大模型赋能电商客服，实现24小时智能问答，人机协作模式成为行业新趋势...</div>
+                    </div>
+                </div>
+                <div class="news-card" data-categories="industry">
+                    <div class="news-card-img" style="background:linear-gradient(135deg,#10b981,#059669);">
+                        <span style="font-size:48px;">📱</span>
+                    </div>
+                    <div class="news-card-body">
+                        <div class="news-card-date">2026年4月8日</div>
+                        <div class="news-card-title">直播电商持续升温，行业规模突破万亿</div>
+                        <div class="news-card-desc">抖音、快手等平台直播电商规模再创新高，专业主播+优质客服成为标配...</div>
+                    </div>
+                </div>
+                <div class="news-card" data-categories="industry">
+                    <div class="news-card-img" style="background:linear-gradient(135deg,#f59e0b,#d97706);">
+                        <span style="font-size:48px;">🛒</span>
+                    </div>
+                    <div class="news-card-body">
+                        <div class="news-card-date">2026年4月5日</div>
+                        <div class="news-card-title">电商平台推出新规，客服质量成考核重点</div>
+                        <div class="news-card-desc">各大电商平台更新评分体系，客服响应速度和服务质量权重提升...</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 双栏新闻 -->
+        <div class="category-section" id="policy-section">
+            <h3 class="category-title">政策解读</h3>
+            <div class="news-row">
+                <div class="news-row-card" data-categories="policy">
+                    <div class="news-row-img" style="background:linear-gradient(135deg,#ec4899,#db2777);">
+                        <span style="font-size:36px;">🏛️</span>
+                    </div>
+                    <div class="news-row-body">
+                        <div class="news-row-title">跨境电商新政落地，机遇与挑战并存</div>
+                        <div class="news-row-desc">新一轮跨境电商政策出台，降低准入门槛的同时也提高了合规要求...</div>
+                    </div>
+                </div>
+                <div class="news-row-card" data-categories="policy">
+                    <div class="news-row-img" style="background:linear-gradient(135deg,#06b6d4,#0891b2);">
+                        <span style="font-size:36px;">📋</span>
+                    </div>
+                    <div class="news-row-body">
+                        <div class="news-row-title">电商法修订草案发布，消费者权益保护再加码</div>
+                        <div class="news-row-desc">《电子商务法》修订草案加强消费者权益保护，对客服服务提出新要求...</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 更多新闻 -->
+        <div class="category-section" id="trend-section">
+            <h3 class="category-title">趋势分析</h3>
+            <div class="news-row">
+                <div class="news-row-card" data-categories="trend">
+                    <div class="news-row-img" style="background:linear-gradient(135deg,#8b5cf6,#7c3aed);">
+                        <span style="font-size:36px;">💡</span>
+                    </div>
+                    <div class="news-row-body">
+                        <div class="news-row-title">私域流量运营成为电商增长新引擎</div>
+                        <div class="news-row-desc">从公域获客到私域运营，电商商家纷纷布局私域流量池，客服成为关键触点...</div>
+                    </div>
+                </div>
+                <div class="news-row-card" data-categories="trend">
+                    <div class="news-row-img" style="background:linear-gradient(135deg,#3b82f6,#2563eb);">
+                        <span style="font-size:36px;">🎯</span>
+                    </div>
+                    <div class="news-row-body">
+                        <div class="news-row-title">全渠道客服一体化成为行业标配</div>
+                        <div class="news-row-desc">打通淘宝、京东、抖音等多平台客服系统，实现统一管理、高效响应...</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 新闻网格2 -->
+        <div class="news-grid" id="promo-section">
+            <div class="news-card" data-categories="industry">
+                <div class="news-card-img" style="background:linear-gradient(135deg,#ef4444,#dc2626);">
+                    <span style="font-size:48px;">⚡</span>
+                </div>
+                <div class="news-card-body">
+                    <div class="news-card-date">2026年4月1日</div>
+                    <div class="news-card-title">客服外包需求激增，专业服务商受青睐</div>
+                    <div class="news-card-desc">越来越多的电商商家选择专业的客服外包服务，降本增效成主要诉求...</div>
+                </div>
+            </div>
+            <div class="news-card" data-categories="trend">
+                <div class="news-card-img" style="background:linear-gradient(135deg,#14b8a6,#0d9488);">
+                    <span style="font-size:48px;">📊</span>
+                </div>
+                <div class="news-card-body">
+                    <div class="news-card-date">2026年3月28日</div>
+                    <div class="news-card-title">数据分析驱动客服服务升级转型</div>
+                    <div class="news-card-desc">从被动响应到主动服务，数据分析让客服价值得到最大化发挥...</div>
+                </div>
+            </div>
+            <div class="news-card" data-categories="promo">
+                <div class="news-card-img" style="background:linear-gradient(135deg,#f97316,#ea580c);">
+                    <span style="font-size:48px;">🎪</span>
+                </div>
+                <div class="news-card-body">
+                    <div class="news-card-date">2026年3月25日</div>
+                    <div class="news-card-title">618、双11大促客服培训季来临</div>
+                    <div class="news-card-desc">各大服务商启动大促专项培训，提升客服应对峰值能力...</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="cta-box">
+            <h3>了解更多电商资讯</h3>
+            <p>专业客服外包服务，助力电商增长</p>
+            <a href="/#contact">立即咨询 →</a>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">山东巅峰网络科技有限公司</div>
+            <p class="footer-text">专注电商客服外包 · 服务超过1000家店铺</p>
+            <div class="footer-copy">
+                Copyright © 2025 山东巅峰网络科技有限公司 All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+    function filterNews(category) {
+        // 更新标签状态
+        document.querySelectorAll('.category-tab').forEach(tab => {
+            tab.classList.remove('active');
+            if (tab.dataset.category === category) {
+                tab.classList.add('active');
+            }
+        });
+
+        // 显示/隐藏对应分类的内容
+        const sections = document.querySelectorAll('.category-section');
+        const hotNews = document.querySelector('.hot-news');
+        const cards = document.querySelectorAll('.news-card, .news-row-card');
+
+        if (category === 'all') {
+            // 显示全部
+            sections.forEach(s => s.classList.remove('hidden'));
+            if (hotNews) hotNews.classList.remove('hidden');
+            cards.forEach(c => c.classList.remove('hidden'));
+        } else {
+            // 隐藏全部 sections
+            sections.forEach(s => s.classList.add('hidden'));
+            if (hotNews) hotNews.classList.add('hidden');
+
+            // 显示对应分类的内容
+            const items = document.querySelectorAll(`[data-categories="${category}"]`);
+            items.forEach(item => item.classList.remove('hidden'));
+
+            // 同时显示行业热点和趋势分析的标题 section（如果该分类有对应内容）
+            if (category === 'industry') {
+                document.getElementById('industry-section').classList.remove('hidden');
+            } else if (category === 'policy') {
+                document.getElementById('policy-section').classList.remove('hidden');
+            } else if (category === 'trend') {
+                document.getElementById('trend-section').classList.remove('hidden');
+            } else if (category === 'promo') {
+                document.getElementById('promo-section').classList.remove('hidden');
+                if (hotNews) hotNews.classList.remove('hidden');
+            }
+        }
+    }
+    </script>
+</body>
+</html>

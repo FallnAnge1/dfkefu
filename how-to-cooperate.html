@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>如何合作 - 山东巅峰网络科技</title>
+    <meta name="keywords" content="客服外包,电商客服外包,如何合作,合作流程">
+    <meta name="description" content="山东巅峰网络科技有限公司合作流程详解，只需简单四步，即可开启专业客服服务之旅。">
+    <meta name="baidu-site-verification" content="codeva-sjKTwsn8Ee">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: "Inter", "PingFang SC", "Microsoft YaHei", sans-serif; color: #333; background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 50%, #bfdbfe 100%); background-attachment: fixed; line-height: 1.6; min-height: 100vh; min-height: 100vh; line-height: 1.6; }
+        
+        /* 导航栏 */
+        .header {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+            background: linear-gradient(135deg, #1e1b4b 0%, #2d2a5a 50%, #312e81 100%); border-bottom: 1px solid rgba(99, 102, 241, 0.3);
+            padding: 0 40px;
+        }
+        .header-inner { max-width: 1200px; margin: 0 auto; height: 70px; display: flex; align-items: center; justify-content: space-between; }
+        .logo-area { display: flex; align-items: center; gap: 10px; }
+        .logo-img { width: 40px; height: 40px; background: linear-gradient(135deg, #4f46e5, #7c3aed); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 16px; font-weight: 800; }
+        .logo-text { font-size: 18px; font-weight: 800; color: #fff; }
+        .logo-sub { font-size: 11px; color: rgba(255,255,255,0.6); letter-spacing: 1px; }
+        .header-nav { display: flex; gap: 32px; }
+        .header-nav a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 17px; font-weight: 600; transition: color 0.3s; }
+        .header-nav a:hover, .header-nav a.active { color: #fff; }
+        
+        
+        /* 主内容区 */
+        .main { padding-top: 120px; padding-bottom: 80px; }
+        
+        /* 页面标题 */
+        .page-header { text-align: center; padding: 60px 20px 40px; }
+        .page-title { font-size: clamp(32px, 5vw, 48px); font-weight: 900; margin-bottom: 16px; background: linear-gradient(135deg, #1e1b4b, #4f46e5); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .page-subtitle { font-size: 22px; color: #4b5563; font-weight: 500; }
+        
+        /* 流程步骤 */
+        .process-section { max-width: 1100px; margin: 0 auto; padding: 40px 20px; }
+        
+        /* 时间线连接线 */
+        .process-timeline { position: relative; }
+        .process-timeline::before {
+            content: ''; position: absolute; top: 60px; left: 50%; transform: translateX(-50%);
+            width: 4px; height: calc(100% - 120px); background: linear-gradient(180deg, #4f46e5, #7c3aed, #4f46e5);
+            border-radius: 2px;
+        }
+        
+        /* 步骤卡片 */
+        .step-card {
+            display: flex; align-items: center; gap: 60px; margin-bottom: 80px; position: relative;
+        }
+        .step-card:nth-child(odd) { flex-direction: row; }
+        .step-card:nth-child(even) { flex-direction: row-reverse; }
+        
+        .step-number { width: 130px; height: 130px; border-radius: 50%; flex-shrink: 0; background: linear-gradient(135deg, #4f46e5, #7c3aed); display: flex; align-items: center; justify-content: center; font-size: 56px; font-weight: 900; color: #fff; box-shadow: 0 0 60px rgba(79, 70, 229, 0.4); position: relative; z-index: 2; }
+        .step-card:nth-child(even) .step-number { order: 2; }
+        
+        .step-content { flex: 1; background: #fff; border-radius: 24px; padding: 40px; border: 1px solid rgba(99, 102, 241, 0.15); box-shadow: 0 4px 24px rgba(0,0,0,0.08); }
+        
+        .step-title { font-size: 36px; font-weight: 900; margin-bottom: 16px; color: #1e1b4b; }
+        .step-desc { font-size: 20px; color: #374151; margin-bottom: 24px; line-height: 1.8; }
+        
+        .step-details { display: flex; flex-direction: column; gap: 12px; }
+        .step-detail {
+            display: flex; align-items: flex-start; gap: 12px; padding: 16px;
+            background: rgba(99, 102, 241, 0.05); border-radius: 12px; border-left: 3px solid #4f46e5;
+        }
+        .step-detail-icon { font-size: 20px; flex-shrink: 0; }
+        .step-detail-text { font-size: 18px; color: #1f2937; line-height: 1.7; }
+        .step-detail-text strong { color: #4f46e5; }
+        
+        /* 底部CTA */
+        .cta-section {
+            text-align: center; padding: 60px 20px; max-width: 800px; margin: 0 auto;
+        }
+        .cta-title { font-size: 36px; font-weight: 900; margin-bottom: 16px; color: #1e1b4b; }
+        .cta-desc { font-size: 20px; color: #4b5563; margin-bottom: 32px; }
+        .cta-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+        .cta-btn {
+            display: inline-flex; align-items: center; gap: 8px;
+            padding: 16px 32px; border-radius: 12px; font-size: 16px; font-weight: 700;
+            text-decoration: none; transition: all 0.3s;
+        }
+        .cta-btn-primary {
+            background: linear-gradient(135deg, #4f46e5, #7c3aed); color: #fff; box-shadow: 0 8px 30px rgba(79, 70, 229, 0.4);
+        }
+        .cta-btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(79, 70, 229, 0.5); }
+        .cta-btn-secondary {
+            background: #fff; color: #4f46e5; border: 1px solid #4f46e5;
+        }
+        .cta-btn-secondary:hover { background: rgba(79, 70, 229, 0.05); }
+        
+        /* 响应式 */
+        @media (max-width: 768px) {
+            .process-timeline::before { left: 60px; }
+            .step-card, .step-card:nth-child(even) { flex-direction: column; gap: 30px; }
+            .step-number { width: 100px; height: 100px; font-size: 36px; order: 0 !important; }
+            .step-content { width: 100%; }
+            .nav { display: none; }
+        }
+        
+        /* 悬浮回到主页按钮 */
+        .floating-home-btn {
+            position: fixed; right: 24px; bottom: 100px; z-index: 999;
+            width: 56px; height: 56px; border-radius: 50%;
+            background: linear-gradient(135deg, #10b981, #059669);
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 4px 20px rgba(16, 185, 129, 0.4);
+            cursor: pointer; transition: all 0.3s;
+            text-decoration: none;
+        }
+        .floating-home-btn:hover {
+            transform: translateY(-4px) scale(1.05);
+            box-shadow: 0 8px 30px rgba(16, 185, 129, 0.5);
+        }
+        .floating-home-btn svg { width: 26px; height: 26px; fill: #fff; }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header class="header">
+        <div class="header-inner">
+            <a href="/" class="logo-area">
+                <img src="./dianfeng-logo.jpg" alt="巅峰网络" style="height:44px;width:44px;object-fit:contain;border-radius:8px;margin-right:4px;">
+                <div>
+                    <div class="logo-text">山东巅峰网络科技</div>
+                    <div class="logo-sub">DianFeng Network</div>
+                </div>
+            </a>
+            <nav class="header-nav">
+                <a href="/">首页</a>
+                <a href="/about.html">关于我们</a>
+                <a href="/cases.html">案例中心</a>
+                <a href="/news.html">新闻资讯</a>
+                <a href="/how-to-cooperate.html" class="active">如何合作</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 悬浮回到主页按钮 -->
+    <a href="/" class="floating-home-btn" title="回到主页">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+        </svg>
+    </a>
+
+    
+    <!-- 主内容 -->
+    <main class="main">
+        <!-- 页面标题 -->
+        <div class="page-header">
+            <h1 class="page-title">如何合作</h1>
+            <p class="page-subtitle">简单四步，开启专业客服之旅</p>
+        </div>
+        
+        <!-- 合作流程 -->
+        <section class="process-section">
+            <div class="process-timeline">
+                
+                <!-- 步骤1 -->
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h2 class="step-title">在线咨询</h2>
+                        <p class="step-desc">联系客服，了解服务详情</p>
+                        <div class="step-details">
+                            <div class="step-detail">
+                                <span class="step-detail-icon">💬</span>
+                                <span class="step-detail-text">通过网页弹窗、企业微信或电话联系我们，客服人员将为您提供专业的咨询服务</span>
+                            </div>
+                            <div class="step-detail">
+                                <span class="step-detail-icon">📋</span>
+                                <span class="step-detail-text">了解 <strong>客服外包服务内容</strong>、<strong>收费标准</strong>、<strong>服务优势</strong> 等核心信息</span>
+                            </div>
+                            <div class="step-detail">
+                                <span class="step-detail-icon">⏰</span>
+                                <span class="step-detail-text">7×24小时在线，随时欢迎咨询</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 步骤2 -->
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h2 class="step-title">需求沟通</h2>
+                        <p class="step-desc">深入了解您的业务需求</p>
+                        <div class="step-details">
+                            <div class="step-detail">
+                                <span class="step-detail-icon">🎯</span>
+                                <span class="step-detail-text">详细沟通您的 <strong>电商平台类型</strong>（淘宝、天猫、京东、抖音等）</span>
+                            </div>
+                            <div class="step-detail">
+                                <span class="step-detail-icon">📦</span>
+                                <span class="step-detail-text">了解您的 <strong>商品品类</strong>、<strong>日均咨询量</strong>、<strong>客服人员需求规模</strong></span>
+                            </div>
+                            <div class="step-detail">
+                                <span class="step-detail-icon">⭐</span>
+                                <span class="step-detail-text">明确您的 <strong>服务质量要求</strong>、<strong>响应时间要求</strong>、<strong>特殊注意事项</strong></span>
+                            </div>
+                            <div class="step-detail">
+                                <span class="step-detail-icon">💡</span>
+                                <span class="step-detail-text">我们的专业顾问将根据您的实际情况提供合理化建议</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 步骤3 -->
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h2 class="step-title">方案定制</h2>
+                        <p class="step-desc">量身定制专属服务方案</p>
+                        <div class="step-details">
+                            <div class="step-detail">
+                                <span class="step-detail-icon">📝</span>
+                                <span class="step-detail-text">根据您的需求，定制 <strong>专属客服外包方案</strong></span>
+                            </div>
+                            <div class="step-detail">
+                                <span class="step-detail-icon">💰</span>
+                                <span class="step-detail-text">提供 <strong>透明合理的报价</strong>，明确服务内容和费用构成</span>
+                            </div>
+                            <div class="step-detail">
+                                <span class="step-detail-icon">📊</span>
+                                <span class="step-detail-text">制定 <strong>KPI考核标准</strong>，确保服务质量可量化、可追踪</span>
+                            </div>
+                            <div class="step-detail">
+                                <span class="step-detail-icon">🤝</span>
+                                <span class="step-detail-text">双方确认方案细节，签订正式<strong>服务合同</strong></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 步骤4 -->
+                <div class="step-card">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h2 class="step-title">正式合作</h2>
+                        <p class="step-desc">签约后快速启动服务</p>
+                        <div class="step-details">
+                            <div class="step-detail">
+                                <span class="step-detail-icon">🚀</span>
+                                <span class="step-detail-text"><strong>快速组建专属客服团队</strong>，匹配您的业务类型</span>
+                            </div>
+                            <div class="step-detail">
+                                <span class="step-detail-icon">📚</span>
+                                <span class="step-detail-text">进行 <strong>产品知识培训</strong>、<strong>话术整理</strong>、<strong>流程对接</strong></span>
+                            </div>
+                            <div class="step-detail">
+                                <span class="step-detail-icon">📈</span>
+                                <span class="step-detail-text">进入<strong>试运营阶段</strong>，持续优化服务质量</span>
+                            </div>
+                            <div class="step-detail">
+                                <span class="step-detail-icon">✅</span>
+                                <span class="step-detail-text">正式运营，进入<strong>长期战略合作</strong>，持续为您提供优质服务</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </section>
+        
+        <!-- 底部CTA -->
+        <section class="cta-section">
+            <h2 class="cta-title">准备开启合作之旅？</h2>
+            <p class="cta-desc">立即联系我们，专业顾问将为您提供一对一咨询服务</p>
+            <div class="cta-buttons">
+                <a href="#" onclick="event.preventDefault(); showContactModal();" class="cta-btn cta-btn-primary">
+                    📞 立即咨询
+                </a>
+            </div>
+        </section>
+    </main>
+    
+    <!-- 返回按钮 -->
+    <a href="/" class="floating-home-btn">🏠</a>
+    
+    <!-- 联系方式弹窗 -->
+    <div id="contactModal" style="display:none; position:fixed; inset:0; z-index:9999; background:rgba(0,0,0,0.6); backdrop-filter:blur(4px); justify-content:center; align-items:center; padding:20px; pointer-events:none;">
+        <div style="background:#fff; border-radius:24px; padding:40px; max-width:420px; width:100%; position:relative; box-shadow:0 24px 80px rgba(0,0,0,0.2); pointer-events:auto;">
+            <button onclick="hideContactModal()" style="position:absolute; top:16px; right:16px; background:rgba(0,0,0,0.06); border:none; width:36px; height:36px; border-radius:50%; cursor:pointer; font-size:18px; display:flex; align-items:center; justify-content:center;">×</button>
+            <div style="text-align:center;">
+                <img src="./wechat-qr-clean.jpg" alt="企业微信二维码" style="width:220px; border-radius:16px; margin-bottom:20px; box-shadow:0 8px 32px rgba(79,70,229,0.2);">
+            </div>
+            <div style="text-align:center;">
+                <p style="font-size:15px; color:#6b7280; margin-bottom:16px;">扫码添加企业微信，获取专属服务</p>
+                <a href="tel:15169203040" style="display:inline-flex; align-items:center; gap:8px; background:linear-gradient(135deg,#4f46e5,#7c3aed); color:#fff; padding:14px 28px; border-radius:12px; font-size:15px; font-weight:600; text-decoration:none;">
+                    📞 151-6920-3040
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function showContactModal() {
+            var modal = document.getElementById('contactModal');
+            if (modal) {
+                modal.style.display = 'flex';
+                modal.style.pointerEvents = 'auto';
+                document.body.style.overflow = 'hidden';
+            }
+        }
+        function hideContactModal() {
+            var modal = document.getElementById('contactModal');
+            if (modal) {
+                modal.style.display = 'none';
+                modal.style.pointerEvents = 'none';
+                document.body.style.overflow = '';
+            }
+        }
+        document.addEventListener('DOMContentLoaded', function() {
+            var modal = document.getElementById('contactModal');
+            if (modal) {
+                modal.addEventListener('click', function(e) {
+                    if (e.target === modal) hideContactModal();
+                });
+            }
+        });
+    </script>
+</body>
+</html>
