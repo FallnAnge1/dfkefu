@@ -14,34 +14,68 @@
         body { font-family: "Inter", "PingFang SC", "Microsoft YaHei", sans-serif; color: #333; background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 50%, #bfdbfe 100%); background-attachment: fixed; line-height: 1.6; min-height: 100vh; line-height: 1.6; font-weight: 500; }
         a { text-decoration: none; color: inherit; }
 
+        
         /* 导航 */
         .header {
             position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-            background: rgba(255,255,255,0.95); backdrop-filter: blur(20px);
+            background: rgba(255,255,255,0.92); backdrop-filter: blur(20px) saturate(1.8);
             border-bottom: 1px solid rgba(0,0,0,0.06);
-            box-shadow: 0 4px 30px rgba(0,0,0,0.05);
+            transition: all 0.4s ease;
         }
+        .header.scrolled {
+            background: rgba(255,255,255,0.97);
+            box-shadow: 0 4px 30px rgba(0,0,0,0.08);
+            animation: slideDown 0.3s ease-out;
+        }
+        @keyframes slideDown { from { transform: translateY(-100%); } to { transform: translateY(0); } }
         .header-inner {
-            max-width: 1200px; margin: 0 auto; height: 70px;
-            display: flex; align-items: center; justify-content: space-between;
-            padding: 0 40px;
+            max-width: 1280px; margin: 0 auto; height: 76px;
+            display: flex; align-items: center; padding: 0 40px;
         }
-        .logo-area { display: flex; align-items: center; gap: 10px; }
-        .logo-area img { height: 42px; width: 42px; object-fit: contain; border-radius: 8px; }
-        .logo-text { font-size: 18px; font-weight: 800; color: #1e1b4b; }
-        .logo-sub { font-size: 11px; color: #9ca3af; letter-spacing: 1px; }
-        .header-nav { display: flex; gap: 32px; }
-        .header-nav a { font-size: 17px; color: #6b7280; font-weight: 600; transition: color 0.3s; }
-        .header-nav a:hover { color: #4f46e5; }
-        .header-nav a.active { color: #4f46e5; }
-        .header-btn {
-            background: linear-gradient(135deg, #4f46e5, #7c3aed);
-            color: #fff; padding: 10px 24px; border-radius: 10px;
-            font-size: 14px; font-weight: 600; transition: all 0.3s;
-        }
-        .header-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(79,70,229,0.35); }
+        .logo-area { display: flex; align-items: center; gap: 12px; }
+        .logo-area img { height: 44px; width: 44px; object-fit: contain; border-radius: 8px; margin-right: 4px; }
+        .logo-text { font-size: 18px; font-weight: 800; color: #1e1b4b; letter-spacing: -0.3px; }
+        .logo-sub { font-size: 10px; color: #a5b4fc; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; margin-top: 1px; }
 
-        /* 页面标题区 */
+        .nav { flex: 1; display: flex; align-items: center; justify-content: center; gap: 36px; }
+        .nav a { font-size: 17px; font-weight: 600; color: #6b7280; transition: color 0.3s; position: relative; padding: 4px 0; }
+        .nav a:hover, .nav a.active { color: #4f46e5; }
+        .nav a::after {
+            content: ''; position: absolute; bottom: -2px; left: 0; right: 0; height: 2px;
+            background: linear-gradient(90deg, #4f46e5, #a855f7); border-radius: 2px;
+            transform: scaleX(0); transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .nav a:hover::after, .nav a.active::after { transform: scaleX(1); }
+
+        /* 下拉菜单 */
+        .nav-item { position: relative; }
+        .nav-dropdown {
+            display: none; position: absolute; top: 100%; left: 50%; transform: translateX(-50%);
+            background: #fff; border-radius: 12px; box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+            padding: 12px 0; min-width: 160px; z-index: 1000;
+        }
+        .nav-item:hover .nav-dropdown { display: block; }
+        .nav-dropdown a {
+            display: block; padding: 10px 20px; font-size: 14px; color: #4b5563;
+            white-space: nowrap; transition: all 0.2s;
+        }
+        .nav-dropdown a:hover { background: #f3f4f6; color: #4f46e5; }
+
+        .header-btns { display: flex; gap: 10px; }
+        .btn-contact {
+            padding: 9px 22px; border: 1.5px solid #4f46e5; color: #4f46e5;
+            border-radius: 10px; font-size: 13px; font-weight: 700; transition: all 0.3s; cursor: pointer; background: transparent;
+        }
+        .btn-contact:hover { background: #4f46e5; color: #fff; box-shadow: 0 4px 16px rgba(79,70,229,0.35); }
+        .btn-quote {
+            padding: 12px 28px;
+            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+            color: #fff; border-radius: 10px; font-size: 13px; font-weight: 700;
+            border: none; cursor: pointer; transition: all 0.3s;
+            box-shadow: 0 4px 16px rgba(79,70,229,0.3);
+        }
+        .btn-quote:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(79,70,229,0.45); }
+/* 页面标题区 */
         .page-hero {
             padding: 140px 40px 80px;
             background: linear-gradient(135deg, #1e1b4b 0%, #4c1d95 50%, #6d28d9 100%);
@@ -188,8 +222,8 @@
     </style>
 </head>
 <body>
-    <!-- 导航 -->
-    <header class="header">
+        <!-- 导航 -->
+    <header class="header" id="header">
         <div class="header-inner">
             <a href="/" class="logo-area">
                 <img src="./dianfeng-logo.jpg" alt="巅峰网络">
@@ -198,16 +232,44 @@
                     <div class="logo-sub">DianFeng Network</div>
                 </div>
             </a>
-            <nav class="header-nav">
+            <nav class="nav">
                 <a href="/">首页</a>
-                <a href="/#services">核心优势</a>
-                <a href="/#business">业务服务</a>
-                <a href="/#guarantee">服务保障</a>
-                <a href="/about.html" class="active">关于我们</a>
+                <a href="/cases.html">案例中心</a>
+                <a href="/pricing.html">收费标准</a>
+                <div class="nav-item">
+                    <a href="/news.html">新闻资讯</a>
+                    <div class="nav-dropdown">
+                        <a href="#">公司新闻</a>
+                        <a href="#">行业资讯</a>
+                        <a href="#">活动动态</a>
+                    </div>
+                </div>
+                <div class="nav-item">
+                    <a href="/about.html">关于我们</a>
+                    <div class="nav-dropdown">
+                        <a href="/about.html">企业简介</a>
+                        <a href="/honors.html">荣誉资质</a>
+                        <a href="#" onclick="event.preventDefault(); showContactModal();">联系我们</a>
+                    </div>
+                </div>
             </nav>
-            <a href="/#contact" class="header-btn">立即咨询</a>
+            <div class="header-btns">
+                <button class="btn-contact" onclick="showContactModal()">商务联系</button>
+                <button class="btn-quote" onclick="showContactModal()">快速报价</button>
+            </div>
         </div>
     </header>
+
+    <script>
+        window.addEventListener('scroll', function() {
+            var header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    </script>
 
     <!-- 悬浮回到主页按钮 -->
     <a href="/" class="floating-home-btn" title="回到主页">
@@ -326,7 +388,7 @@
         <div class="cta-box">
             <h3>期待与您合作</h3>
             <p>专业客服外包服务，让您的店铺运营更高效</p>
-            <a href="/#contact">立即咨询 →</a>
+            <a href="javascript:void(0)" onclick="showContactModal()">立即咨询 →</a>
         </div>
     </section>
 
@@ -340,5 +402,33 @@
             </div>
         </div>
     </footer>
+
+    <!-- 联系弹窗 -->
+    <div id="contactModal" style="display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,0.6);backdrop-filter:blur(4px);justify-content:center;align-items:center;padding:20px;pointer-events:none;">
+        <div style="background:#fff;border-radius:24px;padding:40px;max-width:420px;width:100%;position:relative;box-shadow:0 24px 80px rgba(0,0,0,0.2);pointer-events:auto;">
+            <button onclick="closeContactModal()" style="position:absolute;top:16px;right:16px;background:rgba(0,0,0,0.06);border:none;width:36px;height:36px;border-radius:50%;cursor:pointer;font-size:18px;display:flex;align-items:center;justify-content:center;">×</button>
+            <div style="text-align:center;display:flex;gap:16px;justify-content:center;margin-bottom:20px;">
+                <img src="./enterprise-wechat-qr.jpg" alt="企业微信二维码" style="width:160px;border-radius:12px;box-shadow:0 4px 16px rgba(79,70,229,0.2);">
+                <img src="./enterprise-wechat-qr2.jpg" alt="企业微信二维码" style="width:160px;border-radius:12px;box-shadow:0 4px 16px rgba(79,70,229,0.2);">
+            </div>
+            <div style="text-align:center;margin-top:16px;padding-top:16px;border-top:1px solid #eee;">
+                <div style="font-size:14px;color:#6b7280;margin-bottom:8px;">或致电</div>
+                <a href="tel:15169203040" style="font-size:20px;font-weight:800;color:#4f46e5;text-decoration:none;">151-6920-3040</a>
+            </div>
+        </div>
+    </div>
+    <script>
+        function showContactModal() {
+            document.getElementById('contactModal').style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+        function closeContactModal() {
+            document.getElementById('contactModal').style.display = 'none';
+            document.body.style.overflow = '';
+        }
+        document.getElementById('contactModal').addEventListener('click', function(e) {
+            if (e.target === this) closeContactModal();
+        });
+    </script>
 </body>
 </html>

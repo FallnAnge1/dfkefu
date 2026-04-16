@@ -89,10 +89,9 @@
         /* ========== 顶部导航 ========== */
         .header {
             position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-            background: rgba(255,255,255,0.92); backdrop-filter: blur(20px) saturate(1.8);
+            background: #fff; backdrop-filter: blur(20px);
             border-bottom: 1px solid rgba(0,0,0,0.06);
             transition: all 0.4s ease;
-            min-width: 1200px;
         }
         .header.scrolled {
             background: rgba(255,255,255,0.97);
@@ -713,8 +712,8 @@
         <nav class="nav">
             <a href="#home" class="active">首页</a>
             <a href="#business">主营业务</a>
-            <a href="#values">核心价值观</a>
             <a href="/cases.html">案例中心</a>
+            <a href="/pricing.html">收费标准</a>
             <div class="nav-item">
                 <a href="/news.html">新闻资讯</a>
                 <div class="nav-dropdown">
@@ -1169,7 +1168,7 @@
             <h2>免费服务试用申请</h2>
             <p>请填写真实信息，试用时长为三天（免费）</p>
         </div>
-        <form class="trial-form" onsubmit="event.preventDefault(); var shop = document.querySelectorAll('.trial-form input[type=text]')[0].value; var phone = document.querySelector('.trial-form input[type=tel]').value; if(!shop || shop.trim()===''){ alert('请填写店铺名称！'); return; } if(!phone || phone.trim()===''){ alert('请填写手机号！'); return; } alert('感谢您的申请！我们会尽快与您联系！');">
+        <form class="trial-form" id="trialForm" onsubmit="handleTrialSubmit(event)">
             <div class="form-group">
                 <input type="text" placeholder="请填写您的店铺名称" required>
             </div>
@@ -1206,7 +1205,7 @@
         </div>
         <div>
             <h4>帮助中心</h4>
-            <a href="#">收费标准</a>
+            <a href="/pricing.html">收费标准</a>
             <a href="/how-to-cooperate.html">如何合作</a>
         </div>
         <div>
@@ -1245,8 +1244,8 @@
         <span>Copyright © 2025 山东巅峰网络科技有限公司 All Rights Reserved.</span>
         <div>
             <a href="#">鲁ICP备XXXXXXXX号</a>
-            <a href="#">网站地图</a>
-            <a href="#">隐私政策</a>
+            <a href="/sitemap.html">网站地图</a>
+            <a href="/privacy.html">隐私政策</a>
         </div>
     </div>
 </footer>
@@ -1440,6 +1439,45 @@
             });
         }
     });
+
+    // ========== 试用申请表单提交 ==========
+    async function handleTrialSubmit(e) {
+        e.preventDefault();
+        var form = document.getElementById('trialForm');
+        var inputs = form.querySelectorAll('input');
+        var shop = inputs[0].value.trim();
+        var platform = inputs[1].value.trim();
+        var category = inputs[2].value.trim();
+        var phone = inputs[3].value.trim();
+        var remark = inputs[4].value.trim();
+
+        if (!shop) { alert('请填写店铺名称！'); return; }
+        if (!phone) { alert('请填写手机号！'); return; }
+
+        var submitBtn = form.querySelector('.trial-btn');
+        submitBtn.disabled = true;
+        submitBtn.textContent = '提交中...';
+
+        try {
+            var res = await fetch('/api/trial', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ shop, platform, category, phone, remark })
+            });
+            var result = await res.json();
+            if (result.success) {
+                alert('提交成功！我们会尽快与您联系！');
+                form.reset();
+            } else {
+                alert('提交失败，请稍后重试或电话联系我们！');
+            }
+        } catch (err) {
+            alert('提交失败，请稍后重试或电话联系我们！');
+        }
+
+        submitBtn.disabled = false;
+        submitBtn.textContent = '提交试用申请';
+    }
 </script>
 
 <!-- 联系方式弹窗 -->
