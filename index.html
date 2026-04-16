@@ -1,0 +1,1445 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>电商客服外包一站式服务平台_山东巅峰网络科技有限公司</title>
+    <meta name="keywords" content="客服外包,电商客服外包,网店客服外包,山东巅峰网络科技">
+    <meta name="description" content="山东巅峰网络科技有限公司，专业电商客服外包服务商，为商家提供淘宝、天猫、京东、拼多多、抖音、快手等全平台客服外包服务。">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: "Inter", "PingFang SC", "Microsoft YaHei", sans-serif; color: #333; background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 50%, #bfdbfe 100%); background-attachment: fixed; line-height: 1.6; overflow-x: hidden; min-height: 100vh; }
+        
+        /* 页面背景动画 */
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        /* 浮动动画 */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        /* 脉冲发光动画 */
+        @keyframes pulseGlow {
+            0%, 100% { box-shadow: 0 0 20px rgba(79,70,229,0.3); }
+            50% { box-shadow: 0 0 40px rgba(79,70,229,0.6); }
+        }
+        
+        /* 旋转动画 */
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        /* 闪烁动画 */
+        @keyframes sparkle {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(0.95); }
+        }
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+
+        /* 滚动动画基础 */
+        .reveal { opacity: 0; transform: translateY(40px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        .reveal-left { opacity: 0; transform: translateX(-60px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+        .reveal-left.active { opacity: 1; transform: translateX(0); }
+        .reveal-right { opacity: 0; transform: translateX(60px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+        .reveal-right.active { opacity: 1; transform: translateX(0); }
+        .reveal-scale { opacity: 0; transform: scale(0.8); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+        .reveal-scale.active { opacity: 1; transform: scale(1); }
+        .reveal-rotate { opacity: 0; transform: rotate(-5deg) scale(0.9); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+        .reveal-rotate.active { opacity: 1; transform: rotate(0deg) scale(1); }
+        .reveal-scale { opacity: 0; transform: scale(0.85); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+        .reveal-scale.active { opacity: 1; transform: scale(1); }
+        .delay-1 { transition-delay: 0.1s; }
+        .delay-2 { transition-delay: 0.2s; }
+        .delay-3 { transition-delay: 0.3s; }
+        .delay-4 { transition-delay: 0.4s; }
+        .delay-5 { transition-delay: 0.5s; }
+
+        /* ========== 粒子背景 ========== */
+        #particles-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
+
+        /* ========== 顶部联系栏 ========== */
+        .top-bar {
+            background: linear-gradient(135deg, #4f46e5, #6366f1);
+            color: #fff; padding: 8px 0;
+            font-size: 13px;
+        }
+        .top-bar-inner {
+            max-width: 1200px; margin: 0 auto; padding: 0 40px;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .top-bar-left { display: flex; gap: 24px; }
+        .top-bar-right { display: flex; gap: 16px; align-items: center; }
+        .top-bar a { color: rgba(255,255,255,0.9); text-decoration: none; transition: color 0.3s; }
+        .top-bar a:hover { color: #fff; }
+        .top-bar-item { display: flex; align-items: center; gap: 6px; }
+        .top-bar-divider { width: 1px; height: 16px; background: rgba(255,255,255,0.3); }
+        
+        /* ========== 顶部导航 ========== */
+        .header {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+            background: rgba(255,255,255,0.92); backdrop-filter: blur(20px) saturate(1.8);
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+            transition: all 0.4s ease;
+            min-width: 1200px;
+        }
+        .header.scrolled {
+            background: rgba(255,255,255,0.97);
+            box-shadow: 0 4px 30px rgba(0,0,0,0.08);
+            animation: slideDown 0.3s ease-out;
+        }
+        @keyframes slideDown { from { transform: translateY(-100%); } to { transform: translateY(0); } }
+        .header-inner {
+            max-width: 1280px; margin: 0 auto; height: 76px;
+            display: flex; align-items: center; padding: 0 40px;
+        }
+        .logo-area { display: flex; align-items: center; gap: 12px; }
+        .logo-img {
+            width: 44px; height: 44px;
+            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 50%, #a855f7 100%);
+            border-radius: 12px; display: flex; align-items: center; justify-content: center;
+            color: #fff; font-size: 18px; font-weight: 800; letter-spacing: -0.5px;
+            box-shadow: 0 4px 16px rgba(79,70,229,0.35);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .logo-img:hover { transform: rotate(8deg) scale(1.08); box-shadow: 0 8px 24px rgba(79,70,229,0.45); }
+        .logo-text { font-size: 18px; font-weight: 800; color: #1e1b4b; letter-spacing: -0.3px; }
+        .logo-sub { font-size: 10px; color: #a5b4fc; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; margin-top: 1px; }
+        
+        .header-contact {
+            display: flex; align-items: center; gap: 16px;
+        }
+        .header-phone, .header-email {
+            font-size: 13px; color: #4f46e5; font-weight: 600;
+            text-decoration: none; transition: color 0.3s;
+            display: flex; align-items: center; gap: 4px;
+        }
+        .header-phone:hover, .header-email:hover { color: #7c3aed; }
+        .nav { flex: 1; display: flex; align-items: center; justify-content: center; gap: 36px; }
+        .nav a { font-size: 17px; font-weight: 600; color: #6b7280; transition: color 0.3s; position: relative; padding: 4px 0; }
+        .nav a:hover, .nav a.active { color: #4f46e5; }
+        .nav a::after {
+            content: ''; position: absolute; bottom: -2px; left: 0; right: 0; height: 2px;
+            background: linear-gradient(90deg, #4f46e5, #a855f7); border-radius: 2px;
+            transform: scaleX(0); transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .nav a:hover::after, .nav a.active::after { transform: scaleX(1); }
+        
+        /* 下拉菜单 */
+        .nav-item { position: relative; }
+        .nav-item .arrow { font-size: 10px; margin-left: 2px; }
+        .nav-dropdown { 
+            display: none; position: absolute; top: 100%; left: 50%; transform: translateX(-50%);
+            background: #fff; border-radius: 12px; box-shadow: 0 8px 32px rgba(0,0,0,0.15); 
+            padding: 12px 0; min-width: 160px; z-index: 1000;
+        }
+        .nav-item:hover .nav-dropdown { display: block; }
+        .nav-dropdown a { 
+            display: block; padding: 10px 20px; font-size: 14px; color: #4b5563; 
+            white-space: nowrap; transition: all 0.2s;
+        }
+        .nav-dropdown a:hover { background: #f3f4f6; color: #4f46e5; }
+        
+        .header-btns { display: flex; gap: 10px; }
+        .btn-contact {
+            padding: 9px 22px; border: 1.5px solid #4f46e5; color: #4f46e5;
+            border-radius: 10px; font-size: 13px; font-weight: 700; transition: all 0.3s; cursor: pointer; background: transparent;
+        }
+        .btn-contact:hover { background: #4f46e5; color: #fff; box-shadow: 0 4px 16px rgba(79,70,229,0.35); }
+        .btn-quote {
+            padding: 12px 28px;
+            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+            color: #fff; border-radius: 10px; font-size: 13px; font-weight: 700;
+            border: none; cursor: pointer; transition: all 0.3s;
+            box-shadow: 0 4px 16px rgba(79,70,229,0.3);
+        }
+        .btn-quote:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(79,70,229,0.45); }
+
+        /* ========== 轮播 Banner ========== */
+        .banner {
+            margin-top: 76px; height: 100vh; min-height: 600px; position: relative; overflow: hidden;
+            width: 100%;
+        }
+        .banner-slides { display: flex; transition: transform 1s cubic-bezier(0.25, 0.46, 0.45, 0.94); height: 100%; }
+        .banner-slide { min-width: 100%; height: 100%; position: relative; display: flex; align-items: center; justify-content: center; z-index: 1; }
+        .banner-slide::before {
+            content: ''; position: absolute; inset: 0; pointer-events: none;
+            background: linear-gradient(135deg, rgba(79,70,229,0.9) 0%, rgba(124,58,237,0.85) 50%, rgba(168,85,247,0.8) 100%);
+        }
+        .banner1 { background: url('https://images.unsplash.com/photo-1551434678-e076c223a692?w=1920&q=80') center/cover no-repeat; }
+        .banner2 { background: url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1920&q=80') center/cover no-repeat; }
+        .banner3 { background: url('https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=1920&q=80') center/cover no-repeat; }
+
+        /* 背景动画渐变叠加 */
+        .banner::after {
+            content: ''; position: absolute; inset: 0; z-index: 1; pointer-events: none;
+            background: linear-gradient(90deg, rgba(79,70,229,0.15), transparent, rgba(168,85,247,0.15));
+            animation: shimmer 6s ease-in-out infinite;
+        }
+        @keyframes shimmer { 0%, 100% { opacity: 0; } 50% { opacity: 1; } }
+
+        .banner-content { position: relative; z-index: 10; text-align: center; color: #fff; max-width: 820px; padding: 0 20px; }
+        .banner-btn { display: inline-block; padding: 16px 44px; background: #fff; color: #4f46e5; border-radius: 14px; font-weight: 800; font-size: 15px; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); animation: fadeInUp 0.6s 0.3s ease forwards; opacity: 0; box-shadow: 0 8px 30px rgba(0,0,0,0.15); cursor: pointer; position: relative; z-index: 100; pointer-events: auto; }
+        .banner-btn:hover { transform: translateY(-4px) scale(1.03); box-shadow: 0 16px 40px rgba(0,0,0,0.25); }
+        .banner-badge {
+            display: inline-block; background: rgba(255,255,255,0.15); backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.25); padding: 8px 20px; border-radius: 50px;
+            font-size: 13px; font-weight: 600; margin-bottom: 24px;
+            animation: fadeInDown 0.8s ease forwards;
+        }
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .banner-title {
+            font-size: clamp(36px, 5vw, 60px); font-weight: 900; margin-bottom: 16px;
+            letter-spacing: -1px; line-height: 1.1;
+            animation: fadeInUp 0.8s 0.2s ease forwards; opacity: 0;
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .banner-sub { font-size: clamp(15px, 2vw, 20px); opacity: 0.88; margin-bottom: 28px; font-weight: 400; animation: fadeInUp 0.8s 0.4s ease forwards; opacity: 0; }
+        .banner-tags { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 36px; animation: fadeInUp 0.8s 0.6s ease forwards; opacity: 0; }
+        .banner-tag { background: rgba(255,255,255,0.18); padding: 8px 20px; border-radius: 50px; font-size: 13px; backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.2); transition: all 0.3s; }
+        .banner-tag:hover { background: rgba(255,255,255,0.3); transform: translateY(-2px); }
+
+        .banner-dots { position: absolute; bottom: 36px; left: 50%; transform: translateX(-50%); display: flex; gap: 10px; z-index: 10; }
+        .banner-dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,0.35); cursor: pointer; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+        .banner-dot.active { background: #fff; transform: scale(1.4); box-shadow: 0 0 12px rgba(255,255,255,0.6); }
+        .banner-arrow { 
+            position: absolute; top: 50%; transform: translateY(-50%); z-index: 200; 
+            cursor: pointer; opacity: 0.7; transition: all 0.3s; 
+            width: 50px; height: 50px; border-radius: 50%;
+            background: rgba(248,247,255,0.92); 
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            pointer-events: auto;
+        }
+        .banner-arrow:hover { opacity: 1; transform: translateY(-50%) scale(1.1); box-shadow: 0 8px 30px rgba(37,99,235,0.3); }
+        .banner-arrow svg { width: 24px; height: 24px; fill: none; stroke: #4f46e5; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+        .banner-prev { left: 30px; }
+        .banner-next { right: 30px; }
+
+        /* 波浪分隔线 */
+        .wave-divider { position: absolute; bottom: -1px; left: 0; right: 0; z-index: 5; line-height: 0; }
+        .wave-divider svg { width: 100%; height: 80px; }
+
+        /* ========== 通用区块 ========== */
+        .section { padding: 100px 60px; max-width: 1280px; margin: 0 auto; position: relative; z-index: 2; }
+        .section-full { padding: 100px 60px; position: relative; z-index: 2; }
+        .section-label {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: linear-gradient(135deg, rgba(79,70,229,0.08), rgba(168,85,247,0.08));
+            border: 1px solid rgba(79,70,229,0.15); color: #4f46e5;
+            padding: 6px 16px; border-radius: 50px; font-size: 12px; font-weight: 700;
+            letter-spacing: 1px; text-transform: uppercase; margin-bottom: 16px;
+        }
+        .section-title { font-size: clamp(28px, 3.5vw, 42px); font-weight: 900; color: #1e1b4b; margin-bottom: 14px; letter-spacing: -0.5px; line-height: 1.2; }
+        .section-sub { font-size: 16px; color: #9ca3af; font-weight: 400; margin-bottom: 50px; }
+
+        /* ========== 核心优势 ========== */
+        .cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+        .card {
+            background: #fff; border-radius: 20px; padding: 36px 28px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.04); transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            border: 1px solid rgba(0,0,0,0.05); position: relative; overflow: hidden;
+        }
+        .card::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+            background: linear-gradient(90deg, #4f46e5, #a855f7);
+            transform: scaleX(0); transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .card:hover { transform: translateY(-12px) scale(1.02); box-shadow: 0 24px 70px rgba(79,70,229,0.18); border-color: rgba(79,70,229,0.15); animation: pulseGlow 2s ease-in-out infinite; }
+        .card:hover::before { transform: scaleX(1); }
+        .card-icon { width: 60px; height: 60px; border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 30px; margin-bottom: 20px; transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1); animation: float 3s ease-in-out infinite; }
+        .card:hover .card-icon { transform: scale(1.15) rotate(-5deg); }
+        .card-icon.blue { background: linear-gradient(135deg, #e0e7ff 0%, #c7d2fe 100%); }
+        .card-icon.purple { background: linear-gradient(135deg, #ede9fe 0%, #ddd6fe 100%); }
+        .card-icon.green { background: linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%); }
+        .card-icon.orange { background: linear-gradient(135deg, #ffedd5 0%, #fed7aa 100%); }
+        .card h3 { font-size: 18px; font-weight: 800; margin-bottom: 10px; color: #1e1b4b; }
+        .card p { font-size: 13.5px; color: #6b7280; line-height: 1.85; }
+
+        /* ========== 业务服务 ========== */
+        .section-bg {
+            background: linear-gradient(180deg, #f8f7ff 0%, #f0effe 50%, #faf9ff 100%);
+            position: relative;
+        }
+        .business-tabs { display: flex; justify-content: center; gap: 8px; margin-bottom: 44px; }
+        .business-tab { padding: 12px 28px; border-radius: 12px; font-size: 14px; font-weight: 700; color: #6b7280; cursor: pointer; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); border: 1.5px solid transparent; background: transparent; }
+        .business-tab:hover { color: #4f46e5; border-color: rgba(79,70,229,0.2); }
+        .business-tab.active {
+            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+            color: #fff; box-shadow: 0 8px 30px rgba(79,70,229,0.4); border-color: transparent;
+            transform: translateY(-2px);
+        }
+        .business-content { background: #fff; border-radius: 24px; padding: 52px; display: grid; grid-template-columns: 1fr 1fr; gap: 52px; align-items: center; box-shadow: 0 20px 60px rgba(79,70,229,0.08); border: 1px solid rgba(79,70,229,0.06); }
+        .business-left h3 { font-size: 30px; font-weight: 900; color: #1e1b4b; margin-bottom: 8px; letter-spacing: -0.5px; }
+        .business-left .sub { font-size: 13px; color: #4f46e5; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 20px; }
+        .business-left p { font-size: 14px; color: #6b7280; line-height: 1.9; margin-bottom: 24px; }
+        .biz-tags { display: flex; flex-wrap: wrap; gap: 10px; }
+        .biz-tag { background: linear-gradient(135deg, #eef2ff 0%, #ede9fe 100%); color: #4f46e5; padding: 8px 18px; border-radius: 50px; font-size: 13px; font-weight: 700; transition: all 0.3s; }
+        .biz-tag:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(79,70,229,0.2); }
+        .business-right { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+        .biz-item { background: linear-gradient(135deg, #f8f7ff 0%, #f0effe 100%); border-radius: 16px; padding: 24px 16px; text-align: center; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); border: 1px solid rgba(79,70,229,0.05); }
+        .biz-item:hover { transform: translateY(-6px) scale(1.02); box-shadow: 0 12px 36px rgba(79,70,229,0.12); background: linear-gradient(135deg, #e0e7ff 0%, #ddd6fe 100%); }
+        .biz-item-icon { font-size: 34px; margin-bottom: 8px; display: block; }
+        .biz-item h4 { font-size: 14px; font-weight: 800; color: #1e1b4b; margin-bottom: 4px; }
+        .biz-item p { font-size: 12px; color: #9ca3af; }
+
+        /* 平台 */
+        .platforms { display: flex; justify-content: center; gap: 36px; flex-wrap: wrap; margin-top: 44px; }
+        .platform { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+        .platform-icon { width: 68px; height: 68px; background: #fff; border-radius: 18px; display: flex; align-items: center; justify-content: center; font-size: 30px; box-shadow: 0 4px 20px rgba(0,0,0,0.06); transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); border: 1px solid rgba(0,0,0,0.04); }
+        .platform:hover .platform-icon { transform: translateY(-8px) scale(1.1); box-shadow: 0 16px 40px rgba(79,70,229,0.15); }
+        .platform span { font-size: 12px; color: #9ca3af; font-weight: 600; }
+
+        /* ========== 数据统计 ========== */
+        .stats-section {
+            background: linear-gradient(135deg, #4f46e5 0%, #3b21d0 30%, #7c3aed 70%, #a855f7 100%);
+            position: relative; overflow: hidden; padding: 80px 60px; border-radius: 28px; margin: 0 40px;
+            box-shadow: 0 20px 80px rgba(79,70,229,0.35);
+        }
+        .stats-section::before {
+            content: ''; position: absolute; inset: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; text-align: center; color: #fff; position: relative; z-index: 2; }
+        .stat-item { padding: 20px; }
+        .stat-num { font-size: clamp(38px, 4.5vw, 56px); font-weight: 900; line-height: 1; letter-spacing: -1px; white-space: nowrap; }
+        .stat-unit { font-size: 28px; font-weight: 400; opacity: 0.8; }
+        .stat-label { font-size: 14px; opacity: 0.75; margin-top: 8px; font-weight: 500; }
+        .stat-bar { width: 48px; height: 3px; background: rgba(255,255,255,0.3); border-radius: 2px; margin: 12px auto 0; overflow: hidden; }
+        .stat-bar-inner { height: 100%; background: #fff; border-radius: 2px; animation: statLoad 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards; width: 0; }
+        @keyframes statLoad { to { width: 100%; } }
+        
+        /* 数字滚动动画 */
+        .counter { display: inline-block; }
+        .counter.counted { animation: countPulse 0.5s ease-out; }
+        @keyframes countPulse { 0% { transform: scale(1.2); } 100% { transform: scale(1); } }
+        
+        /* 卡片悬浮高级效果 */
+        .advantage-card { transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+        .advantage-card:hover { transform: translateY(-12px) scale(1.02); box-shadow: 0 24px 60px rgba(79,70,229,0.15); }
+        
+        /* 平台图标悬浮效果 */
+        .platform { transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+        .platform:hover { transform: translateY(-8px); }
+        .platform:hover .platform-icon { box-shadow: 0 16px 40px rgba(79,70,229,0.2); }
+        
+        /* 价值观卡片悬浮 */
+        .value-card { transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+        .value-card:hover { transform: translateY(-8px); box-shadow: 0 20px 50px rgba(79,70,229,0.12); }
+        
+        /* 服务保障卡片悬浮 */
+        .guarantee { transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+        .guarantee:hover { transform: translateY(-6px); background: rgba(255,255,255,0.95); }
+        
+        /* ========== 痛点对比区块 ========== */
+        .comparison-wrapper {
+            display: grid; grid-template-columns: 1fr auto 1fr; gap: 24px; align-items: start;
+            margin-top: 48px;
+        }
+        .comparison-col {
+            background: #fff; border-radius: 20px; padding: 28px;
+            box-shadow: 0 4px 20px rgba(79,70,229,0.06);
+        }
+        .comparison-pain { border: 1px solid rgba(99,102,241,0.15); }
+        .comparison-solution { border: 1px solid rgba(99,102,241,0.2); box-shadow: 0 4px 20px rgba(79,70,229,0.08); }
+        .comparison-header {
+            display: flex; align-items: center; gap: 10px; margin-bottom: 20px;
+            padding-bottom: 16px; border-bottom: 1px solid rgba(99,102,241,0.1);
+        }
+        .pain-header h3 { color: #4f46e5; font-size: 18px; }
+        .solution-header h3 { color: #10b981; font-size: 18px; }
+        .pain-icon, .solution-icon { font-size: 24px; }
+        .pain-item, .solution-item {
+            display: flex; gap: 12px; padding: 14px 0;
+            border-bottom: 1px dashed rgba(0,0,0,0.05);
+        }
+        .pain-item:last-child, .solution-item:last-child { border-bottom: none; }
+        .pain-icon-small { font-size: 18px; flex-shrink: 0; margin-top: 2px; }
+        .solution-icon-small { font-size: 18px; flex-shrink: 0; margin-top: 2px; }
+        .pain-item h4, .solution-item h4 { font-size: 14px; font-weight: 700; margin-bottom: 4px; }
+        .pain-item p, .solution-item p { font-size: 13px; color: #6b7280; line-height: 1.5; }
+        .pain-item h4 { color: #4f46e5; }
+        .solution-item h4 { color: #4f46e5; font-weight: 800; }
+        
+        /* VS箭头 */
+        .comparison-arrow {
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            padding-top: 80px;
+        }
+        .arrow-line {
+            width: 2px; height: 40px;
+            background: linear-gradient(180deg, #4f46e5, #6366f1);
+        }
+        .arrow-circle {
+            width: 48px; height: 48px; border-radius: 50%;
+            background: linear-gradient(135deg, #4f46e5, #6366f1);
+            color: #fff; font-size: 14px; font-weight: 800;
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 4px 20px rgba(79,70,229,0.4);
+            animation: pulseRing 2s ease-out infinite;
+        }
+        
+        /* 移动端适配 */
+        @media screen and (max-width: 768px) {
+            .comparison-wrapper {
+                grid-template-columns: 1fr; gap: 20px;
+            }
+            .comparison-arrow {
+                flex-direction: row; padding: 0;
+                gap: 12px;
+            }
+            .arrow-line { width: 40px; height: 2px; }
+            .comparison-col { padding: 20px; }
+            .pain-item, .solution-item { padding: 12px 0; }
+        }
+        
+        /* 渐变文字动画 */
+        .gradient-text { background: linear-gradient(135deg, #4f46e5, #a855f7, #ec4899, #4f46e5); background-size: 300% 300%; animation: gradientFlow 4s ease infinite; }
+        @keyframes gradientFlow { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+        
+        /* 背景动画 */
+        .floating { animation: floatFloat 6s ease-in-out infinite; }
+        @keyframes floatFloat { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-20px); } }
+        
+        /* 脉冲光环 */
+        .pulse-ring { animation: pulseRing 2s ease-out infinite; }
+        @keyframes pulseRing { 0% { box-shadow: 0 0 0 0 rgba(79,70,229,0.4); } 70% { box-shadow: 0 0 0 20px rgba(79,70,229,0); } 100% { box-shadow: 0 0 0 0 rgba(79,70,229,0); } }
+
+        /* ========== 价值观 ========== */
+        .values-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+        .value-card {
+            border-radius: 24px; padding: 48px 36px; text-align: center;
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative; overflow: hidden;
+        }
+        .value-card.blue { background: linear-gradient(145deg, #e0e7ff 0%, #c7d2fe 60%, #ddd6fe 100%); }
+        .value-card.purple { background: linear-gradient(145deg, #ede9fe 0%, #ddd6fe 60%, #fae8ff 100%); }
+        .value-card.green { background: linear-gradient(145deg, #dcfce7 0%, #bbf7d0 60%, #d1fae5 100%); }
+        .value-card:hover { transform: translateY(-8px) scale(1.02); box-shadow: 0 24px 60px rgba(0,0,0,0.12); }
+        .value-icon { font-size: 56px; margin-bottom: 16px; display: block; filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1)); }
+        .value-card h3 { font-size: 24px; font-weight: 900; margin-bottom: 20px; color: #1e1b4b; letter-spacing: -0.5px; }
+        .value-card p { font-size: 14px; color: #4b5563; line-height: 2.2; text-align: left; }
+        .value-card strong { color: #4f46e5; }
+
+        /* ========== 服务保障 ========== */
+        .guarantees { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+        .guarantee {
+            background: #fff; border-radius: 20px; padding: 36px 24px; text-align: center;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.04); border: 1px solid rgba(0,0,0,0.04);
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .guarantee:hover { transform: translateY(-8px); box-shadow: 0 20px 60px rgba(79,70,229,0.12); border-color: rgba(79,70,229,0.1); }
+        .guarantee-icon { font-size: 40px; margin-bottom: 14px; display: block; }
+        .guarantee h4 { font-size: 16px; font-weight: 800; margin-bottom: 8px; color: #1e1b4b; }
+        .guarantee p { font-size: 13px; color: #9ca3af; line-height: 1.8; }
+
+        /* ========== CTA ========== */
+        .cta-section {
+            background: linear-gradient(135deg, #4f46e5 0%, #3b21d0 30%, #7c3aed 70%, #a855f7 100%);
+            padding: 100px 60px; text-align: center; color: #fff; position: relative; overflow: hidden;
+        }
+        .cta-section::before {
+            content: ''; position: absolute; inset: 0;
+            background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.04' fill-rule='evenodd'/%3E%3C/svg%3E");
+        }
+        .cta-section h2 { font-size: clamp(28px, 4vw, 46px); font-weight: 900; margin-bottom: 14px; position: relative; z-index: 2; letter-spacing: -0.5px; }
+        .cta-section > p { font-size: 16px; opacity: 0.8; margin-bottom: 40px; position: relative; z-index: 2; }
+        .cta-form { max-width: 640px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; position: relative; z-index: 2; }
+        .cta-form input { padding: 15px 20px; border: 2px solid rgba(255,255,255,0.2); border-radius: 14px; background: rgba(255,255,255,0.12); color: #fff; font-size: 14px; outline: none; transition: all 0.3s; backdrop-filter: blur(8px); }
+        .cta-form input::placeholder { color: rgba(255,255,255,0.55); }
+        .cta-form input:focus { border-color: rgba(255,255,255,0.5); background: rgba(255,255,255,0.18); }
+        .cta-form input.full { grid-column: 1 / -1; }
+        .cta-form button { grid-column: 1 / -1; padding: 17px; background: #fff; color: #4f46e5; border: none; border-radius: 14px; font-size: 16px; font-weight: 800; cursor: pointer; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); box-shadow: 0 8px 30px rgba(0,0,0,0.2); }
+        .cta-form button:hover { transform: translateY(-3px) scale(1.01); box-shadow: 0 16px 40px rgba(0,0,0,0.3); }
+        .cta-note { font-size: 12px; opacity: 0.55; margin-top: 10px; position: relative; z-index: 2; }
+
+        /* ========== 申请试用 ========== */
+        .trial-section {
+            background: linear-gradient(135deg, #1e1b4b 0%, #2d2a5a 50%, #312e81 100%);
+            padding: 80px 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .trial-card {
+            background: #fff;
+            border-radius: 24px;
+            padding: 48px;
+            max-width: 580px;
+            width: 100%;
+            box-shadow: 0 24px 80px rgba(0,0,0,0.3);
+        }
+        .trial-header {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+        .trial-header h2 {
+            font-size: 28px;
+            font-weight: 800;
+            color: #1e1b4b;
+            margin-bottom: 12px;
+        }
+        .trial-header p {
+            font-size: 14px;
+            color: #6b7280;
+        }
+        .trial-form .form-group {
+            margin-bottom: 20px;
+        }
+        .trial-form input, .trial-form select {
+            width: 100%;
+            padding: 16px 20px;
+            border: 2px solid #e5e7eb;
+            border-radius: 12px;
+            font-size: 15px;
+            transition: border-color 0.3s;
+            outline: none;
+            background: #fff;
+        }
+        .trial-form input:focus {
+            border-color: #4f46e5;
+        }
+        .trial-note {
+            font-size: 12px;
+            color: #9ca3af;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .trial-btn {
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+            color: #fff;
+            border: none;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .trial-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(79,70,229,0.4);
+        }
+        
+        /* ========== 页脚 ========== */
+        .footer { background: #0f0e2a; color: rgba(255,255,255,0.65); padding: 72px 60px 0; min-width: 1200px; }
+        .footer-grid { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 1.2fr; gap: 48px; padding-bottom: 48px; }
+        .footer-brand .logo-area { margin-bottom: 16px; }
+        .footer-brand p { font-size: 13px; line-height: 1.9; color: rgba(255,255,255,0.45); margin-top: 12px; }
+        .footer h4 { color: rgba(255,255,255,0.95); font-size: 14px; margin-bottom: 18px; font-weight: 700; }
+        .footer a { display: block; font-size: 13px; margin-bottom: 10px; color: rgba(255,255,255,0.4); transition: all 0.3s; }
+        .footer a:hover { color: #a5b4fc; transform: translateX(3px); }
+        .footer-contact p { font-size: 13px; margin-bottom: 10px; color: rgba(255,255,255,0.45); }
+        .footer-bottom { max-width: 1280px; margin: 0 auto; padding: 24px 0; border-top: 1px solid rgba(255,255,255,0.07); display: flex; justify-content: space-between; font-size: 12px; color: rgba(255,255,255,0.3); align-items: center; }
+        .footer-bottom a { color: rgba(255,255,255,0.3); margin: 0 6px; transition: color 0.3s; }
+        .footer-bottom a:hover { color: #a5b4fc; }
+
+        /* 悬浮客服按钮 */
+        .float-btn {
+            position: fixed; bottom: 30px; right: 30px; z-index: 999;
+            width: 56px; height: 56px; border-radius: 16px;
+            background: linear-gradient(135deg, #4f46e5, #7c3aed);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 24px; cursor: pointer;
+            box-shadow: 0 8px 30px rgba(79,70,229,0.5);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            animation: floatBounce 3s ease-in-out infinite, pulseRing 2s ease-out infinite;
+        }
+        .float-btn:hover { transform: scale(1.12); box-shadow: 0 12px 40px rgba(79,70,229,0.6); }
+        @keyframes floatBounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+        /* ========== 移动端专属排版 ========== */
+        @media screen and (max-width: 768px) {
+            /* 通用 */
+            body { font-size: 14px !important; }
+            
+            /* 顶部联系栏 */
+            .top-bar { padding: 6px 0 !important; }
+            .top-bar-inner { padding: 0 16px !important; flex-wrap: wrap; gap: 8px; justify-content: center; }
+            .top-bar-left { gap: 12px !important; }
+            .top-bar-right { display: none !important; }
+            .section { padding: 48px 16px !important; }
+            
+            /* 导航栏 */
+            .header { min-width: auto !important; position: fixed !important; }
+            .header-inner { padding: 0 12px !important; height: 56px !important; }
+            .header-nav { display: none !important; }
+            .header-logo-text { font-size: 14px !important; }
+            
+            /* Banner */
+            .banner-section { padding-top: 56px !important; min-height: auto !important; height: auto !important; padding-bottom: 40px !important; }
+            .banner-content h1 { font-size: 24px !important; line-height: 1.3 !important; }
+            .banner-content p { font-size: 13px !important; }
+            .banner-btns { flex-direction: column !important; gap: 10px !important; }
+            .banner-btn { width: 100% !important; justify-content: center !important; }
+            
+            /* 核心优势 */
+            .section-title { font-size: 22px !important; }
+            .advantage-grid { grid-template-columns: 1fr !important; gap: 16px !important; }
+            .advantage-card { padding: 20px !important; }
+            
+            /* 业务服务 */
+            .business-tabs { flex-wrap: wrap !important; gap: 8px !important; justify-content: center; }
+            .business-tab { padding: 8px 14px !important; font-size: 12px !important; }
+            .business-content { padding: 20px !important; }
+            .business-left h3 { font-size: 18px !important; }
+            .biz-tags { flex-wrap: wrap !important; }
+            .biz-tag { font-size: 11px !important; padding: 4px 8px !important; }
+            .business-right { grid-template-columns: 1fr 1fr !important; gap: 12px !important; margin-top: 20px !important; }
+            
+            /* 平台 */
+            .platform-section { padding: 40px 16px !important; }
+            .platform-grid { grid-template-columns: repeat(4, 1fr) !important; gap: 10px !important; }
+            .platform-icon { width: 52px !important; height: 52px !important; border-radius: 12px !important; }
+            .platform-icon img { width: 28px !important; height: 28px !important; }
+            
+            /* 数据统计 */
+            .stats-grid { grid-template-columns: 1fr 1fr !important; gap: 20px !important; }
+            .stat-num { font-size: 26px !important; }
+            
+            /* 价值 */
+            .value-grid { grid-template-columns: 1fr !important; gap: 16px !important; }
+            .value-card { padding: 20px !important; }
+            
+            /* 保障 */
+            .guarantee-grid { grid-template-columns: 1fr 1fr !important; gap: 12px !important; }
+            .guarantee-card { padding: 16px !important; font-size: 12px !important; }
+            
+            /* CTA */
+            .cta-section { padding: 48px 16px !important; }
+            .cta-section h2 { font-size: 20px !important; }
+            .cta-wechat-card img { width: 200px !important; }
+            .cta-note { font-size: 11px !important; }
+            
+            /* 页脚 */
+            .footer { min-width: auto !important; padding: 40px 16px 0 !important; }
+            .footer-grid { grid-template-columns: 1fr !important; gap: 28px !important; }
+            .footer-brand { text-align: center; }
+            .logo-area { justify-content: center; }
+            .footer-contact { text-align: center; }
+            .footer-contact img { margin: 12px auto !important; display: block; }
+            .footer-bottom { flex-direction: column; gap: 12px; text-align: center; font-size: 11px; }
+            .footer h4 { font-size: 14px; }
+            .footer a { font-size: 12px; }
+            
+            /* 悬浮按钮 */
+            .float-btn { width: 48px !important; height: 48px !important; font-size: 20px !important; bottom: 16px !important; right: 16px !important; }
+            
+            /* 轮播箭头移动端适配 */
+            .banner-arrow { width: 40px !important; height: 40px !important; opacity: 0.9 !important; }
+            .banner-arrow svg { width: 18px !important; height: 18px !important; }
+            
+            /* 关于我们 */
+            .about-content { padding: 0 4px !important; }
+            .about-content > div p { font-weight: 600; }
+            .about-content > div { padding: 24px 16px !important; border-radius: 12px !important; }
+            .about-content p { font-size: 16px !important; font-weight: 700 !important; line-height: 1.9 !important; margin-bottom: 16px !important; }
+            
+            /* 弹窗 */
+            #contactModal > div { padding: 28px 20px !important; max-width: 340px !important; }
+            #contactModal img { width: 180px !important; }
+            
+            /* 新闻卡片悬浮 */
+            .news-card:hover { transform: translateY(-6px); box-shadow: 0 12px 40px rgba(79,70,229,0.15); }
+            
+            /* 新闻移动端 */
+            .news-grid { grid-template-columns: 1fr !important; gap: 16px !important; }
+            .news-grid-2 { grid-template-columns: 1fr !important; gap: 16px !important; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ========== 顶部联系栏 ========== -->
+<div class="top-bar">
+    <div class="top-bar-inner">
+        <div class="top-bar-left">
+            <span class="top-bar-item">📞 151-6920-3040</span>
+            <span class="top-bar-divider"></span>
+            <span class="top-bar-item">📧 723897894@qq.com</span>
+        </div>
+        <div class="top-bar-right">
+            <span class="top-bar-item">🕐 7×24小时在线服务</span>
+        </div>
+    </div>
+</div>
+
+<canvas id="particles-canvas"></canvas>
+
+<!-- ========== 导航 ========== -->
+<header class="header" id="header">
+    <div class="header-inner">
+        <div class="logo-area">
+            <img src="./dianfeng-logo.jpg" alt="巅峰网络" style="height:44px;width:44px;object-fit:contain;border-radius:8px;margin-right:4px;">
+            <div>
+                <div class="logo-text">山东巅峰网络科技</div>
+                <div class="logo-sub">DianFeng Network</div>
+            </div>
+        </div>
+        <nav class="nav">
+            <a href="#home" class="active">首页</a>
+            <a href="#business">主营业务</a>
+            <a href="#values">核心价值观</a>
+            <a href="/cases.html">案例中心</a>
+            <div class="nav-item">
+                <a href="/news.html">新闻资讯</a>
+                <div class="nav-dropdown">
+                    <a href="#">公司新闻</a>
+                    <a href="#">行业资讯</a>
+                    <a href="#">活动动态</a>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="#about">关于我们</a>
+                <div class="nav-dropdown">
+                    <a href="/about.html">企业简介</a>
+                    <a href="#">精英团队</a>
+                    <a href="/honors.html">荣誉资质</a>
+                    <a href="#" onclick="event.preventDefault(); showContactModal();">联系我们</a>
+                </div>
+            </div>
+        </nav>
+        <div class="header-btns">
+            <button class="btn-contact" onclick="showContactModal()">商务联系</button>
+            <button class="btn-quote" onclick="showContactModal()">快速报价</button>
+        </div>
+    </div>
+</header>
+
+<!-- ========== 轮播 ========== -->
+<section class="banner" id="home">
+    <div class="banner-slides" id="bannerSlides">
+        <div class="banner-slide banner1">
+            <div class="banner-content">
+                <div class="banner-badge">🏆 专业的电商客服外包服务商</div>
+                <h1 class="banner-title">为人类商业价值<br>和人生价值做出贡献</h1>
+                <p class="banner-sub">以心换心，用服务创造价值，让每一次沟通都有温度</p>
+                <div class="banner-tags">
+                    <span class="banner-tag">💙 将心比心</span>
+                    <span class="banner-tag">⚡ 事事回响</span>
+                    <span class="banner-tag">✨ 天生骄傲</span>
+                </div>
+                <a href="#contact" class="banner-btn" onclick="event.preventDefault(); showContactModal();">立即咨询 →</a>
+            </div>
+        </div>
+        <div class="banner-slide banner2">
+            <div class="banner-content">
+                <div class="banner-badge">🚀 全平台一站式服务</div>
+                <h1 class="banner-title">专业电商客服外包<br>全平台覆盖</h1>
+                <p class="banner-sub">全天候在线 · 高转化保障 · 数据可视化</p>
+                <div class="banner-tags">
+                    <span class="banner-tag">🛒 淘宝/天猫</span>
+                    <span class="banner-tag">📦 京东/拼多多</span>
+                    <span class="banner-tag">🎬 抖音/快手</span>
+                </div>
+                <a href="#contact" class="banner-btn" onclick="event.preventDefault(); showContactModal();">免费试用 →</a>
+            </div>
+        </div>
+        <div class="banner-slide banner3">
+            <div class="banner-content">
+                <div class="banner-badge">🎯 行业标准践行者</div>
+                <h1 class="banner-title">千人同心<br>可得万人之力</h1>
+                <p class="banner-sub">没有完美的个人，只有完美的团队</p>
+                <div class="banner-tags">
+                    <span class="banner-tag">💬 售前咨询</span>
+                    <span class="banner-tag">🔄 售后服务</span>
+                    <span class="banner-tag">📊 数据分析</span>
+                </div>
+                <a href="#contact" class="banner-btn" onclick="event.preventDefault(); showContactModal();">了解更多 →</a>
+            </div>
+        </div>
+    </div>
+    <div class="banner-dots" id="bannerDots">
+        <div class="banner-dot active" data-index="0"></div>
+        <div class="banner-dot" data-index="1"></div>
+        <div class="banner-dot" data-index="2"></div>
+    </div>
+    <div class="banner-arrow banner-prev" id="bannerPrev">
+        <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>
+    </div>
+    <div class="banner-arrow banner-next" id="bannerNext">
+        <svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+    </div>
+    <div class="wave-divider">
+        <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 80V30C240 60 480 0 720 30C960 60 1200 0 1440 30V80H0Z" fill="#fff"/>
+        </svg>
+    </div>
+</section>
+
+<!-- ========== 行业痛点 vs 我们的优势 ========== -->
+<section class="section" id="comparison" style="background:linear-gradient(135deg,rgba(99,102,241,0.02) 0%,rgba(79,70,229,0.03) 50%,rgba(99,102,241,0.02) 100%);">
+    <div class="section-title reveal"><span class="section-label">🔍 Why Us</span></div>
+    <h2 class="section-title reveal">为什么选择<span class="gradient-text">山东巅峰</span></h2>
+    <p class="section-sub reveal">行业痛点 vs 我们的解决方案</p>
+    
+    <div class="comparison-wrapper reveal" style="max-width:1000px;margin:0 auto;">
+        <!-- 痛点列 -->
+        <div class="comparison-col comparison-pain">
+            <div class="comparison-header pain-header">
+                <span class="pain-icon">⚠️</span>
+                <h3>行业痛点</h3>
+            </div>
+            <div class="pain-list">
+                <div class="pain-item">
+                    <div class="pain-icon-small">❌</div>
+                    <div>
+                        <h4>自建团队成本高</h4>
+                        <p>招聘、培训、社保、管理成本居高不下，小店铺难以承受</p>
+                    </div>
+                </div>
+                <div class="pain-item">
+                    <div class="pain-icon-small">❌</div>
+                    <div>
+                        <h4>客服响应慢</h4>
+                        <p>人工成本高不得不缩减人力，导致响应超时，客户流失</p>
+                    </div>
+                </div>
+                <div class="pain-item">
+                    <div class="pain-icon-small">❌</div>
+                    <div>
+                        <h4>服务质量难把控</h4>
+                        <p>缺乏专业培训和质量监控，客户满意度低，DSR评分下降</p>
+                    </div>
+                </div>
+                <div class="pain-item">
+                    <div class="pain-icon-small">❌</div>
+                    <div>
+                        <h4>人员流动大</h4>
+                        <p>客服离职率高，新人培训周期长，服务质量不稳定</p>
+                    </div>
+                </div>
+                <div class="pain-item">
+                    <div class="pain-icon-small">❌</div>
+                    <div>
+                        <h4>大促人手不足</h4>
+                        <p>双11、618等大促期间咨询量暴增，根本忙不过来</p>
+                    </div>
+                </div>
+                <div class="pain-item">
+                    <div class="pain-icon-small">❌</div>
+                    <div>
+                        <h4>数据反馈缺失</h4>
+                        <p>缺乏数据分析，不知道问题出在哪里，无法优化</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 对比箭头 -->
+        <div class="comparison-arrow">
+            <div class="arrow-line"></div>
+            <div class="arrow-circle">VS</div>
+            <div class="arrow-line"></div>
+        </div>
+        
+        <!-- 优势列 -->
+        <div class="comparison-col comparison-solution">
+            <div class="comparison-header solution-header">
+                <span class="solution-icon">✨</span>
+                <h3>我们的方案</h3>
+            </div>
+            <div class="solution-list">
+                <div class="solution-item">
+                    <div class="solution-icon-small">💎</div>
+                    <div>
+                        <h4>成本直降50%+</h4>
+                        <p>专业团队按需配置，0招聘0培训0管理，省心省力</p>
+                    </div>
+                </div>
+                <div class="solution-item">
+                    <div class="solution-icon-small">⚡</div>
+                    <div>
+                        <h4>15秒极速响应</h4>
+                        <p>7×24小时在线，15秒内响应，漏接率为0</p>
+                    </div>
+                </div>
+                <div class="solution-item">
+                    <div class="solution-icon-small">🛡️</div>
+                    <div>
+                        <h4>双质检保障</h4>
+                        <p>人工+智能系统双重质检，客户满意度99%+</p>
+                    </div>
+                </div>
+                <div class="solution-item">
+                    <div class="solution-icon-small">🏆</div>
+                    <div>
+                        <h4>团队稳定专业</h4>
+                        <p>金牌客服团队，0流动，服务质量始终如一</p>
+                    </div>
+                </div>
+                <div class="solution-item">
+                    <div class="solution-icon-small">📈</div>
+                    <div>
+                        <h4>弹性扩容</h4>
+                        <p>大促专属预案，人手随时增加，从容应对峰值</p>
+                    </div>
+                </div>
+                <div class="solution-item">
+                    <div class="solution-icon-small">💡</div>
+                    <div>
+                        <h4>数据驱动</h4>
+                        <p>实时数据看板，深度分析报告，精准优化提升</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ========== 核心优势 ========== -->
+<section class="section" id="services">
+    <div class="section-title reveal"><span class="section-label">💪 Core Advantages</span></div>
+    <h2 class="section-title reveal">我们的<span class="gradient-text">核心优势</span></h2>
+    <p class="section-sub reveal">将心比心 · 事事回响 · 天生骄傲</p>
+    <div class="reveal" style="text-align:center;margin-bottom:30px;padding:16px 24px;background:linear-gradient(135deg,rgba(79,70,229,0.08),rgba(168,85,247,0.08));border-radius:12px;border:1px solid rgba(79,70,229,0.15);display:inline-block;">
+        <span style="font-size:16px;color:#4f46e5;font-weight:700;">🏆 阿里巴巴官方认证服务商</span>
+    </div>
+    <div class="cards">
+        <div class="card reveal delay-1">
+            <div class="card-icon blue">💡</div>
+            <h3>经验丰富</h3>
+            <p>深耕电商客服行业多年，汇聚资深管理、专业运营、金牌客服与优秀数据分析团队，为客户提供专业化服务保障。</p>
+        </div>
+        <div class="card reveal delay-2">
+            <div class="card-icon purple">🛡️</div>
+            <h3>质量管理</h3>
+            <p>人工＋自研智能质检系统双质检机制，优化服务质量，提升服务数据，让每一次客户互动都有最佳结果。</p>
+        </div>
+        <div class="card reveal delay-3">
+            <div class="card-icon green">⚡</div>
+            <h3>数据保障</h3>
+            <p>15秒极速响应，客户满意度95%+，3分钟内人工回复率99%+，用数据说话，让服务可见可量化。</p>
+        </div>
+        <div class="card reveal delay-4">
+            <div class="card-icon orange">🏆</div>
+            <h3>品牌口碑</h3>
+            <p>服务客户遍布各行各业，以专业和服务赢得市场认可，合作客户持续增长，口碑与信誉双重保障。</p>
+        </div>
+    </div>
+</section>
+
+<!-- ========== 业务服务 ========== -->
+<section class="section-full section-bg" id="business">
+    <div class="section">
+        <div class="section-title reveal"><span class="section-label">📦 Services</span></div>
+        <h2 class="section-title reveal">多元化业务<span class="gradient-text">全平台覆盖</span></h2>
+        <p class="section-sub reveal">懂产品 · 懂接待 · 更懂销售</p>
+        <div class="business-tabs reveal">
+            <button class="business-tab active" data-tab="0">客服外包</button>
+        </div>
+        <div class="business-content" id="businessContent">
+            <div class="business-left">
+                <h3>客服外包</h3>
+                <div class="sub">全品类全平台专业服务</div>
+                <p>我们提供专业的电商客服外包服务，覆盖淘宝、天猫、京东、拼多多、抖音、快手等主流电商平台。客服团队经严格培训，持证上岗，7×24小时全年无休，为您的店铺提供高转化、高质量的客户服务体验。</p>
+                <div class="biz-tags">
+                    <span class="biz-tag">🎯 高转化率</span>
+                    <span class="biz-tag">🎓 持证上岗</span>
+                    <span class="biz-tag">⏰ 全天在线</span>
+                    <span class="biz-tag">⚡ 15秒响应</span>
+                </div>
+            </div>
+            <div class="business-right">
+                <div class="biz-item"><div class="biz-item-icon">📈</div><h4>高转化率</h4><p>询单转化率高</p></div>
+                <div class="biz-item"><div class="biz-item-icon">🏅</div><h4>持证上岗</h4><p>高级认证客服</p></div>
+                <div class="biz-item"><div class="biz-item-icon">🕐</div><h4>全天在线</h4><p>7×24全年无休</p></div>
+                <div class="biz-item"><div class="biz-item-icon">🚀</div><h4>极速响应</h4><p>15秒内响应</p></div>
+            </div>
+        </div>
+        <div class="section-title reveal" style="margin-top: 50px;"><h3>覆盖平台</h3></div>
+        <div class="platforms reveal">
+            <div class="platform">
+                <div class="platform-icon" style="background:#FFF5F0;">
+                    <img src="./platform-logos/taobao.svg" alt="淘宝" style="width:36px;height:36px;object-fit:contain;">
+                </div>
+                <span>淘宝</span>
+            </div>
+            <div class="platform">
+                <div class="platform-icon" style="background:#FFF0F5;">
+                    <img src="./platform-logos/tmall.svg" alt="天猫" style="width:36px;height:36px;object-fit:contain;">
+                </div>
+                <span>天猫</span>
+            </div>
+            <div class="platform">
+                <div class="platform-icon" style="background:#F0F0FF;">
+                    <img src="./platform-logos/douyin.svg" alt="抖音" style="width:36px;height:36px;object-fit:contain;">
+                </div>
+                <span>抖音</span>
+            </div>
+            <div class="platform">
+                <div class="platform-icon" style="background:#FFF5E6;">
+                    <img src="./platform-logos/pinduoduo.svg" alt="拼多多" style="width:36px;height:36px;object-fit:contain;">
+                </div>
+                <span>拼多多</span>
+            </div>
+            <div class="platform">
+                <div class="platform-icon" style="background:#F0F8FF;">
+                    <img src="./platform-logos/jd.svg" alt="京东" style="width:36px;height:36px;object-fit:contain;">
+                </div>
+                <span>京东</span>
+            </div>
+            <div class="platform">
+                <div class="platform-icon" style="background:#FFF0F5;">
+                    <img src="./platform-logos/xiaohongshu.svg" alt="小红书" style="width:36px;height:36px;object-fit:contain;">
+                </div>
+                <span>小红书</span>
+            </div>
+            <div class="platform">
+                <div class="platform-icon" style="background:#F0FFF0;">
+                    <img src="./platform-logos/kuaishou.svg" alt="快手" style="width:36px;height:36px;object-fit:contain;">
+                </div>
+                <span>快手</span>
+            </div>
+            <div class="platform">
+                <div class="platform-icon" style="background:#FFF5F5;">
+                    <img src="./platform-logos/dewu.svg" alt="得物" style="width:36px;height:36px;object-fit:contain;">
+                </div>
+                <span>得物</span>
+            </div>
+            <div class="platform">
+                <div class="platform-icon" style="background:#F0FFFB;">
+                    <img src="./platform-logos/weixinshipin.svg" alt="视频号小店" style="width:36px;height:36px;object-fit:contain;">
+                </div>
+                <span>视频号小店</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ========== 数据展示 ========== -->
+<section class="section">
+    <div class="stats-section reveal-scale">
+        <div class="stats">
+            <div class="stat-item">
+                <div class="stat-num"><span class="counter" data-target="10">0</span><span class="stat-unit">年</span></div>
+                <div class="stat-label">深耕行业</div>
+                <div class="stat-bar"><div class="stat-bar-inner"></div></div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-num"><span class="counter" data-target="50">0</span><span class="stat-unit">+</span></div>
+                <div class="stat-label">金牌员工</div>
+                <div class="stat-bar"><div class="stat-bar-inner" style="animation-delay:0.2s"></div></div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-num"><span class="counter" data-target="1000">0</span><span class="stat-unit">+</span></div>
+                <div class="stat-label">累计服务客户</div>
+                <div class="stat-bar"><div class="stat-bar-inner" style="animation-delay:0.4s"></div></div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-num"><span class="counter" data-target="99">0</span><span class="stat-unit">%</span></div>
+                <div class="stat-label">客户满意度</div>
+                <div class="stat-bar"><div class="stat-bar-inner" style="animation-delay:0.6s"></div></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ========== 价值观 ========== -->
+<section class="section" id="values">
+    <div class="section-title reveal"><span class="section-label">❤️ Our Values</span></div>
+    <h2 class="section-title reveal">公司<span class="gradient-text">核心价值观</span></h2>
+    <p class="section-sub reveal">将心比心 · 事事回响 · 天生骄傲</p>
+    <div class="values-grid">
+        <div class="value-card blue reveal delay-1">
+            <span class="value-icon">💙</span>
+            <h3>将心比心</h3>
+            <p>
+                ✦ 多一份理解，少一份指责<br>
+                ✦ 多一份担当，少一份敷衍<br>
+                ✦ 多一些补台，少一点拆台<br><br>
+                <strong>没有完美的个人，只有完美的团队。</strong><br>
+                千人同心可得万人之力，万人异心则无一人之用。
+            </p>
+        </div>
+        <div class="value-card purple reveal delay-2">
+            <span class="value-icon">⚡</span>
+            <h3>事事回响</h3>
+            <p>
+                <strong>事事回响</strong>不止于响，更强调执行力。<br>
+                对过程中的问题不降标、不妥协，有始有终，<br>
+                让每件事都有最好的结果。<br><br>
+                ✦ <strong>及时响应</strong> — 任务分配后迅速行动<br>
+                ✦ <strong>件件着落</strong> — 每个阶段都有明确产出<br>
+                ✦ <strong>责任心</strong> — 对职责负全责，勇于承担
+            </p>
+        </div>
+        <div class="value-card green reveal delay-3">
+            <span class="value-icon">✨</span>
+            <h3>天生骄傲</h3>
+            <p>
+                知责于心，担责于身，履责于行。<br><br>
+                ✦ <strong>自信工作</strong> — 敢于接受挑战，坚持不懈<br>
+                ✦ <strong>团队精神</strong> — 以公司为荣，高度认同<br>
+                ✦ <strong>追求卓越</strong> — 不断追求卓越，不设上限<br>
+                ✦ <strong>知行合一</strong> — 明智履职，量力而行
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- ========== 服务保障 ========== -->
+<section class="section-full section-bg" id="guarantee">
+    <div class="section">
+        <div class="section-title reveal"><span class="section-label">🔒 Service Guarantee</span></div>
+        <h2 class="section-title reveal">服务<span class="gradient-text">保障体系</span></h2>
+        <p class="section-sub reveal">独有的协调检测机制，人工+系统多重数据监控</p>
+        <div class="reveal" style="text-align:center;margin-bottom:30px;padding:16px 24px;background:linear-gradient(135deg,rgba(79,70,229,0.08),rgba(168,85,247,0.08));border-radius:12px;border:1px solid rgba(79,70,229,0.15);display:inline-block;">
+            <span style="font-size:16px;color:#4f46e5;font-weight:700;">🏆 阿里巴巴官方认证服务商</span>
+        </div>
+        <div class="guarantees">
+            <div class="guarantee reveal delay-1">
+                <span class="guarantee-icon">🔄</span>
+                <h4>循环培训</h4>
+                <p>采用"2+1"培训模式<br>金牌客服定期话术培训</p>
+            </div>
+            <div class="guarantee reveal delay-2">
+                <span class="guarantee-icon">🔍</span>
+                <h4>多重质检</h4>
+                <p>人工定期+随机双重检测<br>自研质检系统实时监控</p>
+            </div>
+            <div class="guarantee reveal delay-3">
+                <span class="guarantee-icon">🔐</span>
+                <h4>数据安全</h4>
+                <p>人脸识别进出职场<br>人机分离签署保密协议</p>
+            </div>
+            <div class="guarantee reveal delay-4">
+                <span class="guarantee-icon">🤝</span>
+                <h4>售后支撑</h4>
+                <p>7×24小时售后极速处理<br>数据未达标可申请退款</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ========== 关于我们 ========== -->
+<section class="section" id="about">
+    <div class="section-title reveal"><span class="section-label">🏢 About Us</span></div>
+    <h2 class="section-title reveal">关于<span class="gradient-text">山东巅峰</span></h2>
+    <p class="section-sub reveal">我们用专业的力量，造就专业的服务</p>
+    <div class="about-content reveal" style="max-width:900px;margin:0 auto;">
+        <div style="background:linear-gradient(135deg,rgba(79,70,229,0.06),rgba(168,85,247,0.06));border-radius:20px;padding:40px 36px;border:1px solid rgba(79,70,229,0.12);text-align:left;line-height:1.9;">
+            <p style="color:#4b5563;font-size:15px;margin-bottom:20px;">山东巅峰网络科技有限公司成立于<strong>2016年</strong>，注册资金<strong>800万元</strong>，同年正式入驻<strong>淘宝官方服务市场</strong>，成为官方认证的优质服务商。公司专注于电商客服外包领域，致力于为大中小电商企业提供专业、高效、优质的一站式客服解决方案。</p>
+            <p style="color:#4b5563;font-size:15px;margin-bottom:20px;">公司服务覆盖<strong>天猫、淘宝、京东、拼多多、抖音、快手、小红书、微信视频号小店</strong>等国内主流电商平台，可为客户同时对接多个店铺、多个平台，提供售前咨询、订单处理、售后服务、客户关系维护等<strong>全流程客服服务</strong>。团队客服均经过严格专业培训，持证上岗，具备丰富的电商实战经验，能够快速响应客户需求，提升询单转化率。</p>
+            <p style="color:#4b5563;font-size:15px;margin-bottom:20px;">公司以<strong>"我们用专业的力量，造就专业的服务"</strong>为核心价值观，以<strong>"事事回响、将心比心、天生骄傲"</strong>为企业文化。我们希望通过自身的专业水平与不懈努力，为客户创造最大价值，最大限度降低中小网店的用工成本，让每一家店铺都能以最优成本享受高品质客服服务。</p>
+            <p style="color:#4b5563;font-size:15px;margin-bottom:20px;">深耕电商客服领域多年，山东巅峰已为超过<strong>1000家</strong>大中小电商店铺提供专业服务，快速、专业、耐心、精准的服务态度赢得了广大客户的信赖与好评，在服务市场树立了良好的品牌形象。公司不仅提供专业的外包服务，更建立了完善的售后服务体系，为客户在店铺运营过程中遇到的各类问题提供<strong>一对一的专业指导与解决方案</strong>，真正做到"服务一条龙，售后有保障"。</p>
+            <p style="color:#4f46e5;font-size:15px;font-weight:600;">展望未来，山东巅峰网络科技将继续秉持专业精神，与广大电商伙伴携手共进，以服务创造价值，以专业赢得未来，共创双赢新局面！</p>
+        </div>
+    </div>
+</section>
+
+<!-- ========== 申请试用 ========== -->
+<section class="trial-section">
+    <div class="trial-card">
+        <div class="trial-header">
+            <h2>免费服务试用申请</h2>
+            <p>请填写真实信息，试用时长为三天（免费）</p>
+        </div>
+        <form class="trial-form" onsubmit="event.preventDefault(); var shop = document.querySelectorAll('.trial-form input[type=text]')[0].value; var phone = document.querySelector('.trial-form input[type=tel]').value; if(!shop || shop.trim()===''){ alert('请填写店铺名称！'); return; } if(!phone || phone.trim()===''){ alert('请填写手机号！'); return; } alert('感谢您的申请！我们会尽快与您联系！');">
+            <div class="form-group">
+                <input type="text" placeholder="请填写您的店铺名称" required>
+            </div>
+            <div class="form-group">
+                <input type="text" placeholder="请填写您的平台">
+            </div>
+            <div class="form-group">
+                <input type="text" placeholder="请填写您的类目">
+            </div>
+            <div class="form-group">
+                <input type="tel" placeholder="请填写您的手机号" required>
+            </div>
+            <div class="form-group">
+                <input type="text" placeholder="请填写备注">
+            </div>
+            <p class="trial-note">(您的信息将仅用于业务沟通，将严格保密)</p>
+            <button type="submit" class="trial-btn">提交试用申请</button>
+        </form>
+    </div>
+</section>
+
+<!-- ========== 页脚 ========== -->
+<footer class="footer">
+    <div class="footer-grid">
+        <div class="footer-brand">
+            <div class="logo-area">
+                <img src="./dianfeng-logo.jpg" alt="巅峰网络" style="height:44px;width:44px;object-fit:contain;border-radius:8px;margin-right:4px;">
+                <div>
+                    <div class="logo-text" style="color:#fff">山东巅峰网络科技</div>
+                    <div class="logo-sub">DianFeng Network</div>
+                </div>
+            </div>
+            <p>山东巅峰网络科技有限公司成立于2016年，注册资金800万元，是阿里巴巴官方认证的优质服务商。公司专注电商客服外包多年，服务覆盖天猫、淘宝、京东、拼多多、抖音、快手、小红书、视频号小店等主流电商平台，已为超过1000家大中小电商店铺提供专业服务，以"快速、专业、耐心、精准"赢得客户信赖与好评。</p>
+        </div>
+        <div>
+            <h4>帮助中心</h4>
+            <a href="#">收费标准</a>
+            <a href="/how-to-cooperate.html">如何合作</a>
+        </div>
+        <div>
+            <h4>新闻资讯</h4>
+            <a href="#">公司新闻</a>
+            <a href="#">行业资讯</a>
+            <a href="#">活动动态</a>
+        </div>
+        <div>
+            <h4>关于我们</h4>
+            <a href="/about.html">企业简介</a>
+            <a href="#">精英团队</a>
+            <a href="/honors.html">荣誉资质</a>
+            <a href="#" onclick="event.preventDefault(); showContactModal();">联系我们</a>
+        </div>
+        <div class="footer-contact">
+            <h4>联系方式</h4>
+            <p>📞 联系电话：15169203040</p>
+            <p>📧 企业邮箱：723897894@qq.com</p>
+            <p>📍 公司地址：山东省淄博市沂源县沂源商务大厦B座12楼1207室</p>
+            <p>📱 企业微信：</p>
+            <div style="display:flex; gap:12px; margin-top:8px;">
+                <img src="/enterprise-wechat-qr.jpg" alt="企业微信二维码" style="width:100px; border-radius:8px;">
+                <img src="/enterprise-wechat-qr2.jpg" alt="企业微信二维码" style="width:100px; border-radius:8px;">
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <span>Copyright © 2025 山东巅峰网络科技有限公司 All Rights Reserved.</span>
+        <div>
+            <a href="#">鲁ICP备XXXXXXXX号</a>
+            <a href="#">网站地图</a>
+            <a href="#">隐私政策</a>
+        </div>
+    </div>
+</footer>
+
+<!-- 悬浮按钮 -->
+<div class="float-btn" onclick="showContactModal()">💬</div>
+
+<script>
+    // ========== 粒子背景 ==========
+    (function() {
+        const canvas = document.getElementById('particles-canvas');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+        let W, H;
+        function resize() {
+            W = canvas.width = window.innerWidth;
+            H = canvas.height = window.innerHeight;
+        }
+        function createParticles() {
+            particles = [];
+            const count = Math.floor((W * H) / 15000);
+            for (let i = 0; i < count; i++) {
+                particles.push({
+                    x: Math.random() * W, y: Math.random() * H,
+                    vx: (Math.random() - 0.5) * 0.3,
+                    vy: (Math.random() - 0.5) * 0.3,
+                    r: Math.random() * 1.5 + 0.5,
+                    opacity: Math.random() * 0.4 + 0.1
+                });
+            }
+        }
+        function draw() {
+            ctx.clearRect(0, 0, W, H);
+            particles.forEach(p => {
+                p.x += p.vx; p.y += p.vy;
+                if (p.x < 0) p.x = W; if (p.x > W) p.x = 0;
+                if (p.y < 0) p.y = H; if (p.y > H) p.y = 0;
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(79,70,229,${p.opacity})`;
+                ctx.fill();
+            });
+            // 连线
+            for (let i = 0; i < particles.length; i++) {
+                for (let j = i + 1; j < particles.length; j++) {
+                    const dx = particles[i].x - particles[j].x;
+                    const dy = particles[i].y - particles[j].y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+                    if (dist < 120) {
+                        ctx.beginPath();
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.strokeStyle = `rgba(79,70,229,${0.08 * (1 - dist / 120)})`;
+                        ctx.lineWidth = 0.5;
+                        ctx.stroke();
+                    }
+                }
+            }
+            requestAnimationFrame(draw);
+        }
+        window.addEventListener('resize', () => { resize(); createParticles(); });
+        resize(); createParticles(); draw();
+    })();
+
+    // ========== 导航滚动 ==========
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+        header.classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    // ========== 滚动动画 ==========
+    const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale');
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+            }
+        });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    revealEls.forEach(el => revealObserver.observe(el));
+
+    // ========== Banner轮播（循环）==========
+    let currentSlide = 0;
+    const totalSlides = 3;
+    const slidesEl = document.getElementById('bannerSlides');
+    const dotsEl = document.querySelectorAll('.banner-dot');
+    
+    function goToSlide(idx) {
+        currentSlide = (idx + totalSlides) % totalSlides;
+        slidesEl.style.transform = `translateX(-${currentSlide * 100}%)`;
+        dotsEl.forEach((d, i) => d.classList.toggle('active', i === currentSlide));
+    }
+    document.getElementById('bannerPrev').addEventListener('click', () => goToSlide(currentSlide - 1));
+    document.getElementById('bannerNext').addEventListener('click', () => goToSlide(currentSlide + 1));
+    dotsEl.forEach(dot => dot.addEventListener('click', () => goToSlide(parseInt(dot.dataset.index))));
+    setInterval(() => goToSlide(currentSlide + 1), 8000);
+
+    // ========== 业务Tab ==========
+    const businessTexts = [
+        { title: '客服外包', sub: '全品类全平台专业服务', desc: '我们提供专业的电商客服外包服务，覆盖淘宝、天猫、京东、拼多多、抖音、快手等主流电商平台。客服团队经严格培训，持证上岗，7×24小时全年无休，为您的店铺提供高转化、高质量的客户服务体验。', tags: ['🎯 高转化率', '🎓 持证上岗', '⏰ 全天在线', '⚡ 15秒响应'] },
+        { title: '私域运营', sub: '精细化用户运营管理', desc: '专业的私域运营团队，帮助商家构建私域流量池，通过精细化用户运营、提升复购率、建立品牌忠诚度，实现从流量到留量的高效转化。', tags: ['👥 用户画像', '🔄 复购提升', '💎 会员体系', '📊 运营分析'] },
+        { title: '直播代播', sub: '专业主播团队代播服务', desc: '高颜值全能主播团队，涵盖家居百货、运动服饰、母婴产品、食品等全行业直播服务。先学习、后开播，针对客户产品优势制定吸睛话术。', tags: ['🎬 专业主播', '🛍️ 全品类', '📈 转化提升', '⏰ 黄金时段'] },
+        { title: '电商运营', sub: '全链路电商运营支持', desc: '提供店铺装修、活动策划、流量获取、数据分析等全链路电商运营服务，让您的店铺在激烈竞争中脱颖而出。', tags: ['🏪 店铺装修', '🎁 活动策划', '📈 流量获取', '📊 数据分析'] },
+        { title: '数据分析', sub: '数据驱动决策支持', desc: '通过对客服数据的深度分析，洞察客户需求，优化服务流程，为企业提供可量化的数据报告和决策支持。', tags: ['📊 数据报表', '🔍 需求洞察', '⚙️ 流程优化', '📈 效果追踪'] }
+    ];
+    const bizItems = [
+        [{icon:'📈',title:'高转化率',sub:'询单转化率高'},{icon:'🏅',title:'持证上岗',sub:'高级认证客服'},{icon:'🕐',title:'全天在线',sub:'7×24全年无休'},{icon:'🚀',title:'极速响应',sub:'15秒内响应'}],
+        [{icon:'👥',title:'用户画像',sub:'精准定位客户'},{icon:'🔄',title:'复购提升',sub:'增加客户粘性'},{icon:'💎',title:'会员体系',sub:'分层精细运营'},{icon:'📊',title:'运营分析',sub:'数据驱动决策'}],
+        [{icon:'🎬',title:'专业主播',sub:'高颜值高专业'},{icon:'🛍️',title:'全品类',sub:'各行业产品覆盖'},{icon:'📈',title:'转化提升',sub:'专业话术引导'},{icon:'⏰',title:'黄金时段',sub:'S级主播排班'}],
+        [{icon:'🏪',title:'店铺装修',sub:'视觉优化升级'},{icon:'🎁',title:'活动策划',sub:'节点营销方案'},{icon:'📈',title:'流量获取',sub:'多渠道推广'},{icon:'📊',title:'数据分析',sub:'实时监控优化'}],
+        [{icon:'📊',title:'数据报表',sub:'可视化报告'},{icon:'🔍',title:'需求洞察',sub:'深挖客户诉求'},{icon:'⚙️',title:'流程优化',sub:'服务效率提升'},{icon:'📈',title:'效果追踪',sub:'持续迭代改进'}]
+    ];
+    document.querySelectorAll('.business-tab').forEach(tab => {
+        tab.addEventListener('click', () => {
+            document.querySelectorAll('.business-tab').forEach(t => t.classList.remove('active'));
+            tab.classList.add('active');
+            const idx = parseInt(tab.dataset.tab);
+            const d = businessTexts[idx];
+            const items = bizItems[idx];
+            document.getElementById('businessContent').innerHTML = `
+                <div class="business-left">
+                    <h3>${d.title}</h3>
+                    <div class="sub">${d.sub}</div>
+                    <p>${d.desc}</p>
+                    <div class="biz-tags">${d.tags.map(t => `<span class="biz-tag">${t}</span>`).join('')}</div>
+                </div>
+                <div class="business-right">
+                    ${items.map(i => `<div class="biz-item"><div class="biz-item-icon">${i.icon}</div><h4>${i.title}</h4><p>${i.sub}</p></div>`).join('')}
+                </div>
+            `;
+        });
+    });
+
+    // ========== 数字滚动动画 ==========
+    function animateCounter(el, target) {
+        let current = 0;
+        const increment = target / 60;
+        const timer = setInterval(() => {
+            current += increment;
+            if (current >= target) {
+                current = target;
+                clearInterval(timer);
+            }
+            el.textContent = Math.floor(current).toLocaleString();
+        }, 16);
+        el.classList.add('counted');
+    }
+
+    const statObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.querySelectorAll('.stat-bar-inner').forEach(bar => {
+                    bar.style.width = '100%';
+                });
+                entry.target.querySelectorAll('.counter').forEach(counter => {
+                    if (!counter.classList.contains('counted')) {
+                        const target = parseInt(counter.dataset.target);
+                        animateCounter(counter, target);
+                        counter.classList.add('counted');
+                    }
+                });
+            }
+        });
+    }, { threshold: 0.5 });
+    document.querySelectorAll('.stats-section').forEach(el => statObserver.observe(el));
+
+    // ========== 联系方式弹窗 ==========
+    function showContactModal(e) {
+        if (e) e.preventDefault();
+        var modal = document.getElementById('contactModal');
+        if (modal) {
+            modal.style.display = 'flex';
+            modal.style.pointerEvents = 'auto';
+            document.body.style.overflow = 'hidden';
+        }
+    }
+    
+    function hideContactModal() {
+        var modal = document.getElementById('contactModal');
+        if (modal) {
+            modal.style.display = 'none';
+            modal.style.pointerEvents = 'none';
+            document.body.style.overflow = '';
+        }
+    }
+    document.addEventListener('DOMContentLoaded', function() {
+        var modal = document.getElementById('contactModal');
+        if (modal) {
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) hideContactModal();
+            });
+        }
+    });
+</script>
+
+<!-- 联系方式弹窗 -->
+<div id="contactModal" style="display:none; position:fixed; inset:0; z-index:9999; background:rgba(0,0,0,0.6); backdrop-filter:blur(4px); justify-content:center; align-items:center; padding:20px; pointer-events:none;">
+    <div style="background:#fff; border-radius:24px; padding:40px; max-width:420px; width:100%; position:relative; box-shadow:0 24px 80px rgba(0,0,0,0.2); pointer-events:auto;">
+        <button onclick="hideContactModal()" style="position:absolute; top:8px; right:8px; background:rgba(0,0,0,0.06); border:none; width:36px; height:36px; border-radius:50%; cursor:pointer; font-size:18px; display:flex; align-items:center; justify-content:center;">×</button>
+        <div style="text-align:center; margin-bottom:20px;">
+            <img src="./wechat-qr-clean.jpg" alt="企业微信" style="width:180px; height:180px; object-fit:cover; border-radius:12px; box-shadow:0 4px 16px rgba(79,70,229,0.2);">
+            <p style="font-size:12px; color:#6b7280; margin-top:8px;">企业微信</p>
+        </div>
+        <div style="text-align:center;">
+            <p style="font-size:15px; color:#6b7280; margin-bottom:16px;">扫码添加企业微信，获取专属服务</p>
+            <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
+                <a href="tel:15169203040" style="display:inline-flex; align-items:center; gap:8px; background:linear-gradient(135deg,#4f46e5,#7c3aed); color:#fff; padding:14px 24px; border-radius:12px; font-size:15px; font-weight:600; text-decoration:none;">
+                    📞 151-6920-3040
+                </a>
+                <a href="tel:15264359685" style="display:inline-flex; align-items:center; gap:8px; background:linear-gradient(135deg,#4f46e5,#7c3aed); color:#fff; padding:14px 24px; border-radius:12px; font-size:15px; font-weight:600; text-decoration:none;">
+                    📞 152-6435-9685
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

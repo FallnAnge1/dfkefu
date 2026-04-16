@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>荣誉资质 - 山东巅峰网络科技有限公司</title>
+    <meta name="description" content="山东巅峰网络科技有限公司荣誉资质，展示公司多年深耕电商客服领域获得的各项认证与荣誉。">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: "Inter", "PingFang SC", "Microsoft YaHei", sans-serif; color: #333; background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 50%, #bfdbfe 100%); min-height: 100vh; }
+        
+        .header {
+            background: linear-gradient(135deg, #1e1b4b 0%, #2d2a5a 50%, #312e81 100%);
+            padding: 0 60px; height: 72px; display: flex; align-items: center; justify-content: space-between;
+            position: sticky; top: 0; z-index: 100;
+        }
+        .header-logo { display: flex; align-items: center; gap: 10px; }
+        .header-logo img { height: 40px; width: 40px; object-fit: contain; border-radius: 8px; }
+        .header-logo-text { color: #fff; font-size: 18px; font-weight: 700; }
+        .header-nav { display: flex; gap: 32px; }
+        .header-nav a { font-size: 17px; color: rgba(255,255,255,0.6); font-weight: 600; transition: color 0.3s; }
+        .header-nav a:hover, .header-nav a.active { color: #fff; }
+        .header-btns { display: flex; gap: 12px; }
+        .header-btn {
+            padding: 8px 20px; border-radius: 8px; font-size: 14px; font-weight: 600;
+            cursor: pointer; transition: all 0.3s; border: none;
+        }
+        .header-btn-outline { background: transparent; color: #fff; border: 1px solid rgba(255,255,255,0.3); }
+        .header-btn-outline:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.5); }
+        
+        .hero {
+            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 50%, #a855f7 100%);
+            padding: 80px 60px; text-align: center; color: #fff;
+        }
+        .hero h1 { font-size: 48px; font-weight: 900; margin-bottom: 16px; }
+        .hero p { font-size: 18px; opacity: 0.9; max-width: 600px; margin: 0 auto; }
+        
+        .content {
+            max-width: 1200px; margin: 60px auto; padding: 0 40px;
+        }
+        .intro-text {
+            background: #fff; border-radius: 20px; padding: 40px; margin-bottom: 40px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.08); text-align: center;
+        }
+        .intro-text h2 {
+            font-size: 28px; font-weight: 800; color: #1e1b4b; margin-bottom: 20px;
+        }
+        .intro-text p {
+            font-size: 16px; line-height: 1.9; color: #4b5563; margin-bottom: 16px;
+        }
+        
+        .honors-section {
+            background: #fff; border-radius: 20px; padding: 40px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.08); margin-bottom: 40px;
+        }
+        .honors-section h3 {
+            font-size: 24px; font-weight: 700; color: #1e1b4b; margin-bottom: 24px; text-align: center;
+        }
+        .honors-image {
+            width: 100%; border-radius: 16px; box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+        }
+        
+        .cert-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 40px;
+        }
+        .cert-item {
+            background: linear-gradient(135deg, #eff6ff, #dbeafe); border-radius: 16px;
+            padding: 24px; text-align: center; border: 2px solid #bfdbfe;
+        }
+        .cert-item .icon { font-size: 48px; margin-bottom: 12px; }
+        .cert-item h4 { font-size: 16px; font-weight: 700; color: #1e1b4b; margin-bottom: 8px; }
+        .cert-item p { font-size: 13px; color: #6b7280; }
+        
+        .values-section {
+            background: linear-gradient(135deg, rgba(79,70,229,0.05), rgba(168,85,247,0.05));
+            border-radius: 20px; padding: 40px; border: 1px solid rgba(79,70,229,0.1);
+        }
+        .values-section h3 {
+            font-size: 24px; font-weight: 700; color: #1e1b4b; margin-bottom: 24px; text-align: center;
+        }
+        .values-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+        }
+        .value-item {
+            background: #fff; border-radius: 16px; padding: 32px 24px; text-align: center;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+        }
+        .value-item .value-icon {
+            width: 64px; height: 64px; border-radius: 50%; background: linear-gradient(135deg, #4f46e5, #7c3aed);
+            display: flex; align-items: center; justify-content: center; margin: 0 auto 16px;
+            font-size: 28px; color: #fff;
+        }
+        .value-item h4 { font-size: 18px; font-weight: 700; color: #1e1b4b; margin-bottom: 8px; }
+        .value-item p { font-size: 14px; color: #6b7280; line-height: 1.6; }
+        
+        .footer {
+            background: #0f0e1a; color: rgba(255,255,255,0.65); padding: 48px 60px 24px;
+            text-align: center;
+        }
+        .footer p { font-size: 14px; }
+        
+        @media (max-width: 768px) {
+            .header { padding: 0 20px; }
+            .header-nav { display: none; }
+            .hero { padding: 60px 20px; }
+            .hero h1 { font-size: 32px; }
+            .content { padding: 0 20px; }
+            .cert-grid, .values-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-logo">
+            <img src="./dianfeng-logo.jpg" alt="巅峰网络">
+            <span class="header-logo-text">山东巅峰网络科技</span>
+        </div>
+        <nav class="header-nav">
+            <a href="/">首页</a>
+            <a href="/cases.html">案例中心</a>
+            <a href="/news.html">新闻资讯</a>
+            <a href="/about.html">关于我们</a>
+            <a href="#" class="active">荣誉资质</a>
+        </nav>
+        <div class="header-btns">
+            <button class="header-btn header-btn-outline" onclick="window.location.href='/'">返回首页</button>
+        </div>
+    </header>
+    
+    <section class="hero">
+        <h1>荣誉资质</h1>
+        <p>多年深耕，载誉前行 —— 山东巅峰网络科技有限公司荣获多项行业认证与荣誉资质</p>
+    </section>
+    
+    <section class="content">
+        <div class="intro-text">
+            <h2>专业认证 · 实力见证</h2>
+            <p>山东巅峰网络科技有限公司自2016年成立以来，始终专注于电商客服外包领域，以专业、高效、优质的服务赢得了广大客户的信赖与好评。公司先后获得阿里巴巴官方认证、淘宝服务市场优质服务商等多项荣誉资质，在行业内树立了良好的品牌形象。</p>
+            <p>我们拥有一支经过严格专业培训的客服团队，所有成员均持证上岗，具备丰富的电商实战经验。公司以"将心比心、事事回响、天生骄傲"为企业文化核心价值观，不断追求卓越服务，为客户创造最大价值。</p>
+        </div>
+        
+        <div class="honors-section">
+            <h3>公司文化墙 · 沂源分部</h3>
+            <img src="./honors-wall.jpg" alt="山东巅峰荣誉墙" class="honors-image">
+        </div>
+        
+        <div class="honors-section">
+            <h3>核心资质认证</h3>
+            <div class="cert-grid">
+                <div class="cert-item">
+                    <div class="icon">🏆</div>
+                    <h4>阿里巴巴认证</h4>
+                    <p>阿里巴巴官方认证优质服务商</p>
+                </div>
+                <div class="cert-item">
+                    <div class="icon">⭐</div>
+                    <h4>淘宝服务市场</h4>
+                    <p>淘宝官方服务市场认证服务商</p>
+                </div>
+                <div class="cert-item">
+                    <div class="icon">📜</div>
+                    <h4>诚信经营认证</h4>
+                    <p>AAA级诚信经营示范单位</p>
+                </div>
+                <div class="cert-item">
+                    <div class="icon">💼</div>
+                    <h4>专业外包资质</h4>
+                    <p>电商客服外包专业资质认证</p>
+                </div>
+                <div class="cert-item">
+                    <div class="icon">🌟</div>
+                    <h4>优质服务认证</h4>
+                    <p>客服服务质量认证企业</p>
+                </div>
+                <div class="cert-item">
+                    <div class="icon">📈</div>
+                    <h4>行业贡献奖</h4>
+                    <p>电商服务业行业贡献奖</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="values-section">
+            <h3>企业文化价值观</h3>
+            <div class="values-grid">
+                <div class="value-item">
+                    <div class="value-icon">💗</div>
+                    <h4>将心比心</h4>
+                    <p>站在客户的角度思考问题，理解客户需求，提供贴心服务</p>
+                </div>
+                <div class="value-item">
+                    <div class="value-icon">🔔</div>
+                    <h4>事事回响</h4>
+                    <p>凡事有回应，件件有着落，确保每一个问题都能得到妥善解决</p>
+                </div>
+                <div class="value-item">
+                    <div class="value-icon">🚀</div>
+                    <h4>天生骄傲</h4>
+                    <p>以专业服务为荣，以团队成就为傲，不断追求卓越</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer class="footer">
+        <p>Copyright © 2025 山东巅峰网络科技有限公司 All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
