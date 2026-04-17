@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>荣誉资质 - 山东巅峰网络科技</title>
+    <meta name="description" content="山东巅峰网络科技有限公司荣誉资质，展示公司多年深耕电商客服领域获得的各项认证与荣誉。">
+    <meta name="baidu-site-verification" content="codeva-sjKTwsn8Ee">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: "Inter", "PingFang SC", "Microsoft YaHei", sans-serif; color: #333; background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 50%, #bfdbfe 100%); background-attachment: fixed; line-height: 1.6; min-height: 100vh; min-height: 100vh; }
+        
+        .header {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+            background: rgba(255,255,255,0.92); backdrop-filter: blur(20px) saturate(1.8);
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+            transition: all 0.4s ease;
+        }
+        .header.scrolled {
+            background: rgba(255,255,255,0.97);
+            box-shadow: 0 4px 30px rgba(0,0,0,0.08);
+        }
+        .header-inner {
+            max-width: 1280px; margin: 0 auto; height: 76px;
+            display: flex; align-items: center; padding: 0 40px;
+        }
+        .logo-area { display: flex; align-items: center; gap: 12px; }
+        .logo-area img { height: 44px; width: 44px; object-fit: contain; border-radius: 8px; margin-right: 4px; }
+        .logo-text { font-size: 18px; font-weight: 800; color: #1e1b4b; }
+        .logo-sub { font-size: 10px; color: #a5b4fc; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; margin-top: 1px; }
+        .nav { flex: 1; display: flex; align-items: center; justify-content: center; gap: 36px; }
+        .nav a { font-size: 17px; font-weight: 600; color: #6b7280; transition: color 0.3s; position: relative; padding: 4px 0; }
+        .nav a:hover, .nav a.active { color: #4f46e5; }
+        .nav a::after {
+            content: ''; position: absolute; bottom: -2px; left: 0; right: 0; height: 2px;
+            background: linear-gradient(90deg, #4f46e5, #a855f7); border-radius: 2px;
+            transform: scaleX(0); transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .nav a:hover::after, .nav a.active::after { transform: scaleX(1); }
+        .nav-item { position: relative; }
+        .nav-dropdown {
+            display: none; position: absolute; top: 100%; left: 50%; transform: translateX(-50%);
+            background: #fff; border-radius: 12px; box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+            padding: 12px 0; min-width: 160px; z-index: 1000;
+        }
+        .nav-item:hover .nav-dropdown { display: block; }
+        .nav-dropdown a {
+            display: block; padding: 10px 20px; font-size: 14px; color: #4b5563;
+            white-space: nowrap; transition: all 0.2s;
+        }
+        .nav-dropdown a:hover { background: #f3f4f6; color: #4f46e5; }
+        .header-btns { display: flex; gap: 10px; }
+        .btn-contact {
+            padding: 9px 22px; border: 1.5px solid #4f46e5; color: #4f46e5;
+            border-radius: 10px; font-size: 13px; font-weight: 700; transition: all 0.3s; cursor: pointer; background: transparent;
+        }
+        .btn-contact:hover { background: #4f46e5; color: #fff; }
+        .btn-quote {
+            padding: 12px 28px;
+            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+            color: #fff; border-radius: 10px; font-size: 13px; font-weight: 700;
+            border: none; cursor: pointer; transition: all 0.3s;
+            box-shadow: 0 4px 16px rgba(79,70,229,0.3);
+        }
+        .btn-quote:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(79,70,229,0.45); }
+        
+        .hero {
+            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 50%, #a855f7 100%);
+            padding: 80px 60px; text-align: center; color: #fff;
+        }
+        .hero h1 { font-size: 48px; font-weight: 900; margin-bottom: 16px; }
+        .hero p { font-size: 18px; opacity: 0.9; max-width: 600px; margin: 0 auto; }
+        
+        .content {
+            max-width: 1200px; margin: 60px auto; padding: 0 40px;
+        }
+        .intro-text {
+            background: #fff; border-radius: 20px; padding: 40px; margin-bottom: 40px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.08); text-align: center;
+        }
+        .intro-text h2 {
+            font-size: 28px; font-weight: 800; color: #1e1b4b; margin-bottom: 20px;
+        }
+        .intro-text p {
+            font-size: 16px; line-height: 1.9; color: #4b5563; margin-bottom: 16px;
+        }
+        
+        .honors-section {
+            background: #fff; border-radius: 20px; padding: 40px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.08); margin-bottom: 40px;
+        }
+        .honors-section h3 {
+            font-size: 24px; font-weight: 700; color: #1e1b4b; margin-bottom: 24px; text-align: center;
+        }
+        .honors-image {
+            width: 100%; border-radius: 16px; box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+        }
+        
+        .cert-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 40px;
+        }
+        .cert-item {
+            background: linear-gradient(135deg, #eff6ff, #dbeafe); border-radius: 16px;
+            padding: 24px; text-align: center; border: 2px solid #bfdbfe;
+        }
+        .cert-item .icon { font-size: 48px; margin-bottom: 12px; }
+        .cert-item h4 { font-size: 16px; font-weight: 700; color: #1e1b4b; margin-bottom: 8px; }
+        .cert-item p { font-size: 13px; color: #6b7280; }
+        
+        .values-section {
+            background: linear-gradient(135deg, rgba(79,70,229,0.05), rgba(168,85,247,0.05));
+            border-radius: 20px; padding: 40px; border: 1px solid rgba(79,70,229,0.1);
+        }
+        .values-section h3 {
+            font-size: 24px; font-weight: 700; color: #1e1b4b; margin-bottom: 24px; text-align: center;
+        }
+        .values-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+        }
+        .value-item {
+            background: #fff; border-radius: 16px; padding: 32px 24px; text-align: center;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+        }
+        .value-item .value-icon {
+            width: 64px; height: 64px; border-radius: 50%; background: linear-gradient(135deg, #4f46e5, #7c3aed);
+            display: flex; align-items: center; justify-content: center; margin: 0 auto 16px;
+            font-size: 28px; color: #fff;
+        }
+        .value-item h4 { font-size: 18px; font-weight: 700; color: #1e1b4b; margin-bottom: 8px; }
+        .value-item p { font-size: 14px; color: #6b7280; line-height: 1.6; }
+        
+
+        /* 悬浮回到主页按钮 */
+        .floating-home-btn {
+            position: fixed; right: 24px; bottom: 100px; z-index: 999;
+            width: 56px; height: 56px; border-radius: 50%;
+            background: linear-gradient(135deg, #10b981, #059669);
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 4px 20px rgba(16, 185, 129, 0.4);
+            cursor: pointer; transition: all 0.3s;
+            text-decoration: none;
+        }
+        .floating-home-btn:hover {
+            transform: translateY(-4px) scale(1.05);
+            box-shadow: 0 8px 30px rgba(16, 185, 129, 0.5);
+        }
+        .floating-home-btn svg { width: 26px; height: 26px; fill: #fff; }
+
+
+        .footer {
+            background: #0f0e1a; color: rgba(255,255,255,0.65); padding: 48px 60px 24px;
+            text-align: center;
+        }
+        .footer p { font-size: 14px; }
+        
+        @media (max-width: 768px) {
+            .header { padding: 0 20px; }
+            .header-nav { display: none; }
+            .hero { padding: 60px 20px; }
+            .hero h1 { font-size: 32px; }
+            .content { padding: 0 20px; }
+            .cert-grid, .values-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header" id="header">
+        <div class="header-inner">
+            <a href="/" class="logo-area">
+                <img src="./dianfeng-logo.jpg" alt="巅峰网络">
+                <div>
+                    <div class="logo-text">山东巅峰网络科技</div>
+                    <div class="logo-sub">DianFeng Network</div>
+                </div>
+            </a>
+            <nav class="nav">
+                <a href="/">首页</a>
+                <a href="/cases.html">案例中心</a>
+                <a href="/pricing.html">收费标准</a>
+                <div class="nav-item">
+                    <a href="/news.html">新闻资讯</a>
+                    <div class="nav-dropdown">
+                        <a href="#">公司新闻</a>
+                        <a href="#">行业资讯</a>
+                        <a href="#">活动动态</a>
+                    </div>
+                </div>
+                <div class="nav-item">
+                    <a href="/about.html">关于我们</a>
+                    <div class="nav-dropdown">
+                        <a href="/about.html">企业简介</a>
+                        <a href="/honors.html">荣誉资质</a>
+                        <a href="#" onclick="event.preventDefault(); showContactModal();">联系我们</a>
+                    </div>
+                </div>
+            </nav>
+            <div class="header-btns">
+                <button class="btn-contact" onclick="showContactModal()">商务联系</button>
+                <button class="btn-quote" onclick="showContactModal()">快速报价</button>
+            </div>
+        </div>
+    </header>
+    <script>
+        window.addEventListener('scroll', function() {
+            var header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    </script>
+
+    <!-- 悬浮回到主页按钮 -->
+    <a href="/" class="floating-home-btn" title="回到主页">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+        </svg>
+    </a>
+
+    
+    <section class="hero">
+        <h1>荣誉资质</h1>
+        <p>多年深耕，载誉前行 —— 山东巅峰网络科技有限公司荣获多项行业认证与荣誉资质</p>
+    </section>
+    
+    <section class="content">
+        <div class="intro-text">
+            <h2>专业认证 · 实力见证</h2>
+            <p>山东巅峰网络科技有限公司自2016年成立以来，始终专注于电商客服外包领域，以专业、高效、优质的服务赢得了广大客户的信赖与好评。公司先后获得阿里巴巴官方认证、淘宝服务市场优质服务商等多项荣誉资质，在行业内树立了良好的品牌形象。</p>
+            <p>我们拥有一支经过严格专业培训的客服团队，所有成员均持证上岗，具备丰富的电商实战经验。公司以"将心比心、事事回响、天生骄傲"为企业文化核心价值观，不断追求卓越服务，为客户创造最大价值。</p>
+        </div>
+        
+        <div class="honors-section">
+            <h3>公司文化墙 · 沂源分部</h3>
+            <img src="./honors-wall.jpg" alt="山东巅峰荣誉墙" class="honors-image">
+        </div>
+        
+        <div class="honors-section">
+            <h3>核心资质认证</h3>
+            <div class="cert-grid">
+                <div class="cert-item">
+                    <div class="icon">🏆</div>
+                    <h4>阿里巴巴认证</h4>
+                    <p>阿里巴巴官方认证优质服务商</p>
+                </div>
+                <div class="cert-item">
+                    <div class="icon">⭐</div>
+                    <h4>淘宝服务市场</h4>
+                    <p>淘宝官方服务市场认证服务商</p>
+                </div>
+                <div class="cert-item">
+                    <div class="icon">📜</div>
+                    <h4>诚信经营认证</h4>
+                    <p>AAA级诚信经营示范单位</p>
+                </div>
+                <div class="cert-item">
+                    <div class="icon">💼</div>
+                    <h4>专业外包资质</h4>
+                    <p>电商客服外包专业资质认证</p>
+                </div>
+                <div class="cert-item">
+                    <div class="icon">🌟</div>
+                    <h4>优质服务认证</h4>
+                    <p>客服服务质量认证企业</p>
+                </div>
+                <div class="cert-item">
+                    <div class="icon">📈</div>
+                    <h4>行业贡献奖</h4>
+                    <p>电商服务业行业贡献奖</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="values-section">
+            <h3>企业文化价值观</h3>
+            <div class="values-grid">
+                <div class="value-item">
+                    <div class="value-icon">💗</div>
+                    <h4>将心比心</h4>
+                    <p>站在客户的角度思考问题，理解客户需求，提供贴心服务</p>
+                </div>
+                <div class="value-item">
+                    <div class="value-icon">🔔</div>
+                    <h4>事事回响</h4>
+                    <p>凡事有回应，件件有着落，确保每一个问题都能得到妥善解决</p>
+                </div>
+                <div class="value-item">
+                    <div class="value-icon">🚀</div>
+                    <h4>天生骄傲</h4>
+                    <p>以专业服务为荣，以团队成就为傲，不断追求卓越</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer class="footer">
+        <p>Copyright © 2025 山东巅峰网络科技有限公司 All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
