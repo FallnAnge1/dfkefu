@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>网站地图 - 山东巅峰网络科技官网栏目导航</title>
+    <meta name="description" content="山东巅峰网络科技网站地图，快速访问电商客服外包服务、客户案例、收费标准、合作流程、新闻资讯和关于我们等栏目。">
+    <meta name="robots" content="index,follow">
+    <meta name="baidu-site-verification" content="codeva-sjKTwsn8Ee">
+    <link rel="canonical" href="https://dfkefu.com/sitemap.html">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="网站地图 - 山东巅峰网络科技官网栏目导航">
+    <meta property="og:description" content="快速访问山东巅峰网络科技官网各栏目，了解电商客服外包服务和合作信息。">
+    <meta property="og:url" content="https://dfkefu.com/sitemap.html">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: "Inter", "PingFang SC", "Microsoft YaHei", sans-serif; color: #333; background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 50%, #bfdbfe 100%); background-attachment: fixed; line-height: 1.6; min-height: 100vh; }
+        a { text-decoration: none; color: inherit; }
+
+        /* 导航 */
+        .header { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(255,255,255,0.92); backdrop-filter: blur(20px) saturate(1.8); border-bottom: 1px solid rgba(0,0,0,0.06); transition: all 0.4s ease; }
+        .header.scrolled { background: rgba(255,255,255,0.97); box-shadow: 0 4px 30px rgba(0,0,0,0.08); }
+        .header-inner { max-width: 1280px; margin: 0 auto; height: 76px; display: flex; align-items: center; padding: 0 40px; }
+        .logo-area { display: flex; align-items: center; gap: 12px; }
+        .logo-area img { height: 44px; width: 44px; object-fit: contain; border-radius: 8px; margin-right: 4px; }
+        .logo-text { font-size: 18px; font-weight: 800; color: #1e1b4b; }
+        .logo-sub { font-size: 10px; color: #a5b4fc; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; }
+        .nav { flex: 1; display: flex; align-items: center; justify-content: center; gap: 36px; }
+        .nav a { font-size: 17px; font-weight: 600; color: #6b7280; transition: color 0.3s; position: relative; padding: 4px 0; }
+        .nav a:hover, .nav a.active { color: #4f46e5; }
+        .nav a::after { content: ''; position: absolute; bottom: -2px; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, #4f46e5, #a855f7); border-radius: 2px; transform: scaleX(0); transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1); }
+        .nav a:hover::after, .nav a.active::after { transform: scaleX(1); }
+        .nav-item { position: relative; }
+        .nav-dropdown { display: none; position: absolute; top: 100%; left: 50%; transform: translateX(-50%); background: #fff; border-radius: 12px; box-shadow: 0 8px 32px rgba(0,0,0,0.15); padding: 12px 0; min-width: 160px; z-index: 1000; }
+        .nav-item:hover .nav-dropdown { display: block; }
+        .nav-dropdown a { display: block; padding: 10px 20px; font-size: 14px; color: #4b5563; white-space: nowrap; transition: all 0.2s; }
+        .nav-dropdown a:hover { background: #f3f4f6; color: #4f46e5; }
+        .header-btns { display: flex; gap: 10px; }
+        .btn-contact { padding: 9px 22px; border: 1.5px solid #4f46e5; color: #4f46e5; border-radius: 10px; font-size: 13px; font-weight: 700; transition: all 0.3s; cursor: pointer; background: transparent; }
+        .btn-contact:hover { background: #4f46e5; color: #fff; }
+        .btn-quote { padding: 12px 28px; background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%); color: #fff; border-radius: 10px; font-size: 13px; font-weight: 700; border: none; cursor: pointer; transition: all 0.3s; box-shadow: 0 4px 16px rgba(79,70,229,0.3); }
+        .btn-quote:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(79,70,229,0.45); }
+
+        /* 页面标题 */
+        .page-hero { padding: 160px 40px 100px; background: linear-gradient(135deg, #1e3a5f 0%, #1e5aa8 50%, #1e6db8 100%); text-align: center; }
+        .page-hero h1 { font-size: clamp(32px, 5vw, 52px); font-weight: 900; color: #fff; margin-bottom: 16px; }
+        .page-hero p { font-size: 18px; color: rgba(255,255,255,0.6); }
+
+        /* 网站地图内容 */
+        .content { padding: 60px 40px; max-width: 1000px; margin: 0 auto; }
+        .sitemap-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+        .sitemap-section { background: #fff; border-radius: 16px; padding: 32px; box-shadow: 0 4px 24px rgba(0,0,0,0.08); }
+        .sitemap-section h3 { font-size: 18px; font-weight: 800; color: #4f46e5; margin-bottom: 20px; padding-bottom: 12px; border-bottom: 2px solid #4f46e5; }
+        .sitemap-section ul { list-style: none; }
+        .sitemap-section li { margin-bottom: 12px; }
+        .sitemap-section a { font-size: 14px; color: #374151; transition: all 0.3s; display: block; padding: 8px 12px; border-radius: 8px; }
+        .sitemap-section a:hover { background: #f3f4f6; color: #4f46e5; transform: translateX(4px); }
+        .sitemap-section a::before { content: '→ '; color: #4f46e5; }
+
+        /* 悬浮回到主页按钮 */
+        .floating-home-btn { position: fixed; right: 24px; bottom: 100px; z-index: 999; width: 56px; height: 56px; border-radius: 50%; background: linear-gradient(135deg, #10b981, #059669); display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(16, 185, 129, 0.4); cursor: pointer; transition: all 0.3s; text-decoration: none; }
+        .floating-home-btn:hover { transform: translateY(-4px) scale(1.05); box-shadow: 0 8px 30px rgba(16, 185, 129, 0.5); }
+        .floating-home-btn svg { width: 26px; height: 26px; fill: #fff; }
+
+        /* 页脚 */
+        .footer { background: #0f0e2a; color: rgba(255,255,255,0.65); padding: 40px 40px 24px; }
+        .footer-content { max-width: 1000px; margin: 0 auto; text-align: center; }
+        .footer-logo { font-size: 16px; font-weight: 700; color: #fff; margin-bottom: 8px; }
+        .footer-copy { margin-top: 20px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.06); font-size: 12px; }
+
+        @media screen and (max-width: 768px) {
+            .header-inner { padding: 0 16px; height: 60px; }
+            .nav { display: none; }
+            .page-hero { padding: 120px 16px 60px; }
+            .content { padding: 32px 16px; }
+            .sitemap-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航 -->
+    <header class="header" id="header">
+        <div class="header-inner">
+            <a href="/" class="logo-area">
+                <img src="./dianfeng-logo.jpg" alt="巅峰网络">
+                <div>
+                    <div class="logo-text">山东巅峰网络科技</div>
+                    <div class="logo-sub">DianFeng Network</div>
+                </div>
+            </a>
+            <nav class="nav">
+                <a href="/">首页</a>
+                <a href="/cases.html">案例中心</a>
+                <a href="/pricing.html">收费标准</a>
+                <div class="nav-item">
+                    <a href="/news.html">新闻资讯</a>
+                    <div class="nav-dropdown">
+                        <a href="/news.html">公司新闻</a>
+                        <a href="/news.html#industry-section">行业资讯</a>
+                        <a href="/news.html#promo-section">活动动态</a>
+                    </div>
+                </div>
+                <div class="nav-item">
+                    <a href="/about.html">关于我们</a>
+                    <div class="nav-dropdown">
+                        <a href="/about.html">企业简介</a>
+                        <a href="/honors.html">荣誉资质</a>
+                        <a href="/#trial" onclick="event.preventDefault(); showContactModal();">联系我们</a>
+                    </div>
+                </div>
+            </nav>
+            <div class="header-btns">
+                <button class="btn-contact" onclick="showContactModal()">商务联系</button>
+                <button class="btn-quote" onclick="showContactModal()">快速报价</button>
+            </div>
+        </div>
+    </header>
+
+    <script>
+        window.addEventListener('scroll', function() {
+            var header = document.getElementById('header');
+            if (window.scrollY > 50) { header.classList.add('scrolled'); }
+            else { header.classList.remove('scrolled'); }
+        });
+    </script>
+
+    <!-- 悬浮回到主页按钮 -->
+    <a href="/" class="floating-home-btn" title="回到主页">
+        <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+    </a>
+
+    <!-- 页面标题 -->
+    <section class="page-hero">
+        <h1>网站地图</h1>
+        <p>快速找到您需要的信息</p>
+    </section>
+
+    <!-- 网站地图 -->
+    <div class="content">
+        <div class="sitemap-grid">
+            <div class="sitemap-section">
+                <h3>主营业务</h3>
+                <ul>
+                    <li><a href="/">首页</a></li>
+                    <li><a href="/#business">业务服务</a></li>
+                    <li><a href="/#services">核心优势</a></li>
+                    <li><a href="/#guarantee">服务保障</a></li>
+                </ul>
+            </div>
+            <div class="sitemap-section">
+                <h3>客户案例</h3>
+                <ul>
+                    <li><a href="/cases.html">案例中心</a></li>
+                    <li><a href="/cases.html">客户评价</a></li>
+                    <li><a href="/cases.html">合作流程</a></li>
+                </ul>
+            </div>
+            <div class="sitemap-section">
+                <h3>收费标准</h3>
+                <ul>
+                    <li><a href="/pricing.html">基础服务套餐</a></li>
+                    <li><a href="/pricing.html">专项服务</a></li>
+                    <li><a href="/pricing.html">套餐选择建议</a></li>
+                    <li><a href="/pricing.html">常见问题</a></li>
+                </ul>
+            </div>
+            <div class="sitemap-section">
+                <h3>新闻资讯</h3>
+                <ul>
+                    <li><a href="/news.html">新闻资讯</a></li>
+                    <li><a href="/news.html">公司新闻</a></li>
+                    <li><a href="/news.html#industry-section">行业资讯</a></li>
+                    <li><a href="/news.html#promo-section">活动动态</a></li>
+                </ul>
+            </div>
+            <div class="sitemap-section">
+                <h3>关于我们</h3>
+                <ul>
+                    <li><a href="/about.html">企业简介</a></li>
+                    <li><a href="/about.html">发展历程</a></li>
+                    <li><a href="/about.html">企业文化</a></li>
+                    <li><a href="/honors.html">荣誉资质</a></li>
+                </ul>
+            </div>
+            <div class="sitemap-section">
+                <h3>帮助与支持</h3>
+                <ul>
+                    <li><a href="/how-to-cooperate.html">如何合作</a></li>
+                    <li><a href="/#trial" onclick="event.preventDefault(); showContactModal();">联系我们</a></li>
+                    <li><a href="tel:15169203040">电话咨询</a></li>
+                    <li><a href="/douyin.html">抖音号</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- 联系弹窗 -->
+    <div id="contactModal" style="display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,0.6);backdrop-filter:blur(4px);justify-content:center;align-items:center;padding:20px;pointer-events:none;">
+        <div style="background:#fff;border-radius:24px;padding:40px;max-width:420px;width:100%;position:relative;box-shadow:0 24px 80px rgba(0,0,0,0.2);pointer-events:auto;">
+            <button onclick="closeContactModal()" style="position:absolute;top:16px;right:16px;background:rgba(0,0,0,0.06);border:none;width:36px;height:36px;border-radius:50%;cursor:pointer;font-size:18px;display:flex;align-items:center;justify-content:center;">×</button>
+            <div style="text-align:center;display:flex;gap:16px;justify-content:center;margin-bottom:20px;">
+                <img src="./enterprise-wechat-qr.jpg" alt="企业微信二维码" style="width:160px;border-radius:12px;box-shadow:0 4px 16px rgba(79,70,229,0.2);">
+                <img src="./enterprise-wechat-qr2.jpg" alt="企业微信二维码" style="width:160px;border-radius:12px;box-shadow:0 4px 16px rgba(79,70,229,0.2);">
+            </div>
+            <div style="text-align:center;margin-top:16px;padding-top:16px;border-top:1px solid #eee;">
+                <div style="font-size:14px;color:#6b7280;margin-bottom:8px;">或致电</div>
+                <a href="tel:15169203040" style="font-size:20px;font-weight:800;color:#4f46e5;text-decoration:none;">151-6920-3040</a>
+            </div>
+        </div>
+    </div>
+    <script>
+        function showContactModal() { document.getElementById('contactModal').style.display = 'flex'; document.body.style.overflow = 'hidden'; }
+        function closeContactModal() { document.getElementById('contactModal').style.display = 'none'; document.body.style.overflow = ''; }
+        document.getElementById('contactModal').addEventListener('click', function(e) { if (e.target === this) closeContactModal(); });
+    </script>
+
+<footer class="footer" style="padding:20px 40px;text-align:center;"><div class="footer-bottom" style="border-top:1px solid rgba(255,255,255,0.1);padding-top:16px;"><span>Copyright © 2026 山东巅峰网络科技有限公司 All Rights Reserved.</span><div style="margin-top:4px;"><a href="https://beian.miit.gov.cn/" target="_blank">鲁ICP备2026024576号-1</a></div></div></footer>
+</body>
+</html>

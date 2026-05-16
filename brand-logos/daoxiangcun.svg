@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 88" role="img" aria-label="北京稻香村">
+  <rect width="240" height="88" rx="18" fill="#fff7ed"/>
+  <rect x="14" y="14" width="212" height="60" rx="14" fill="#b91c1c"/>
+  <text x="120" y="45" text-anchor="middle" font-family="'Songti SC','SimSun',serif" font-size="28" font-weight="700" fill="#fff8dc">北京稻香村</text>
+  <text x="120" y="63" text-anchor="middle" font-family="Arial,sans-serif" font-size="10" letter-spacing="2" fill="#fde68a">DAOXIANGCUN</text>
+</svg>

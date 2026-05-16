@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>关于我们 - 山东巅峰网络科技电商客服外包公司简介</title>
+    <meta name="keywords" content="山东巅峰网络科技,电商客服外包公司,客服外包服务商,公司简介">
+    <meta name="description" content="山东巅峰网络科技有限公司成立于2016年，专注电商客服外包与店铺客服托管，服务覆盖淘宝、天猫、京东、拼多多、抖音、快手等平台。">
+    <meta name="robots" content="index,follow">
+    <meta name="baidu-site-verification" content="codeva-sjKTwsn8Ee">
+    <link rel="canonical" href="https://dfkefu.com/about.html">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="关于我们 - 山东巅峰网络科技电商客服外包公司简介">
+    <meta property="og:description" content="了解山东巅峰网络科技的发展历程、服务平台、团队能力和电商客服外包服务优势。">
+    <meta property="og:url" content="https://dfkefu.com/about.html">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: "Inter", "PingFang SC", "Microsoft YaHei", sans-serif; color: #333; background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 50%, #bfdbfe 100%); background-attachment: fixed; line-height: 1.6; min-height: 100vh; line-height: 1.6; font-weight: 500; }
+        a { text-decoration: none; color: inherit; }
+
+        /* 导航 */
+        .header {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+            background: rgba(255,255,255,0.92); backdrop-filter: blur(20px) saturate(1.8);
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+            transition: all 0.4s ease;
+        }
+        .header.scrolled {
+            background: rgba(255,255,255,0.97);
+            box-shadow: 0 4px 30px rgba(0,0,0,0.08);
+            animation: slideDown 0.3s ease-out;
+        }
+        @keyframes slideDown { from { transform: translateY(-100%); } to { transform: translateY(0); } }
+        .header-inner {
+            max-width: 1280px; margin: 0 auto; height: 76px;
+            display: flex; align-items: center; padding: 0 40px;
+        }
+        .logo-area { display: flex; align-items: center; gap: 12px; }
+        .logo-area img { height: 44px; width: 44px; object-fit: contain; border-radius: 8px; margin-right: 4px; }
+        .logo-text { font-size: 18px; font-weight: 800; color: #1e1b4b; letter-spacing: -0.3px; }
+        .logo-sub { font-size: 10px; color: #a5b4fc; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; margin-top: 1px; }
+
+        .nav { flex: 1; display: flex; align-items: center; justify-content: center; gap: 36px; }
+        .nav a { font-size: 17px; font-weight: 600; color: #6b7280; transition: color 0.3s; position: relative; padding: 4px 0; }
+        .nav a:hover, .nav a.active { color: #4f46e5; }
+        .nav a::after {
+            content: ''; position: absolute; bottom: -2px; left: 0; right: 0; height: 2px;
+            background: linear-gradient(90deg, #4f46e5, #a855f7); border-radius: 2px;
+            transform: scaleX(0); transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .nav a:hover::after, .nav a.active::after { transform: scaleX(1); }
+
+        /* 下拉菜单 */
+        .nav-item { position: relative; }
+        .nav-dropdown {
+            display: none; position: absolute; top: 100%; left: 50%; transform: translateX(-50%);
+            background: #fff; border-radius: 12px; box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+            padding: 12px 0; min-width: 160px; z-index: 1000;
+        }
+        .nav-item:hover .nav-dropdown { display: block; }
+        .nav-dropdown a {
+            display: block; padding: 10px 20px; font-size: 14px; color: #4b5563;
+            white-space: nowrap; transition: all 0.2s;
+        }
+        .nav-dropdown a:hover { background: #f3f4f6; color: #4f46e5; }
+
+        .header-btns { display: flex; gap: 10px; }
+        .btn-contact {
+            padding: 9px 22px; border: 1.5px solid #4f46e5; color: #4f46e5;
+            border-radius: 10px; font-size: 13px; font-weight: 700; transition: all 0.3s; cursor: pointer; background: transparent;
+        }
+        .btn-contact:hover { background: #4f46e5; color: #fff; box-shadow: 0 4px 16px rgba(79,70,229,0.35); }
+        .btn-quote {
+            padding: 12px 28px;
+            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+            color: #fff; border-radius: 10px; font-size: 13px; font-weight: 700;
+            border: none; cursor: pointer; transition: all 0.3s;
+            box-shadow: 0 4px 16px rgba(79,70,229,0.3);
+        }
+        .btn-quote:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(79,70,229,0.45); }
+/* 页面标题区 */
+        .page-hero {
+            padding: 140px 40px 80px;
+            background: linear-gradient(135deg, #1e1b4b 0%, #4c1d95 50%, #6d28d9 100%);
+            text-align: center; position: relative; overflow: hidden;
+        }
+        .page-hero::before {
+            content: ''; position: absolute; inset: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        .page-hero h1 {
+            font-size: clamp(32px, 5vw, 52px); font-weight: 900; color: #fff;
+            margin-bottom: 16px; letter-spacing: -1px; position: relative;
+        }
+        .page-hero p { font-size: 18px; color: rgba(255,255,255,0.7); position: relative; }
+        .breadcrumb {
+            margin-top: 24px; display: flex; align-items: center; justify-content: center; gap: 8px;
+            font-size: 14px; color: rgba(255,255,255,0.5); position: relative;
+        }
+        .breadcrumb a { color: rgba(255,255,255,0.6); transition: color 0.3s; }
+        .breadcrumb a:hover { color: #fff; }
+
+        /* 内容区 */
+        .content { max-width: 1000px; margin: 0 auto; padding: 80px 40px; }
+        
+        /* 公司简介卡片 */
+        .intro-card {
+            background: linear-gradient(135deg, rgba(79,70,229,0.06), rgba(168,85,247,0.06));
+            border-radius: 24px; padding: 48px; border: 1px solid rgba(79,70,229,0.12);
+            margin-bottom: 48px;
+        }
+        .intro-card h2 {
+            font-size: 26px; font-weight: 800; color: #1e1b4b; margin-bottom: 24px;
+            display: flex; align-items: center; gap: 12px;
+        }
+        .intro-card h2::before {
+            content: ''; width: 4px; height: 28px;
+            background: linear-gradient(180deg, #4f46e5, #a855f7); border-radius: 2px;
+        }
+        .intro-card p {
+            font-size: 15px; color: #4b5563; line-height: 2; margin-bottom: 18px;
+        }
+        .intro-card p:last-child { margin-bottom: 0; }
+
+        /* 里程碑 */
+        .timeline { position: relative; padding-left: 32px; margin: 48px 0; }
+        .timeline::before {
+            content: ''; position: absolute; left: 8px; top: 0; bottom: 0;
+            width: 2px; background: linear-gradient(180deg, #4f46e5, #a855f7);
+        }
+        .timeline-item { position: relative; margin-bottom: 36px; }
+        .timeline-item::before {
+            content: ''; position: absolute; left: -28px; top: 6px;
+            width: 12px; height: 12px; background: #4f46e5; border-radius: 50%;
+            border: 3px solid #fff; box-shadow: 0 0 0 2px #4f46e5;
+        }
+        .timeline-year {
+            font-size: 18px; font-weight: 800; color: #4f46e5; margin-bottom: 6px;
+        }
+        .timeline-text { font-size: 14px; color: #6b7280; line-height: 1.7; }
+
+        /* 数值 */
+        .stats-grid {
+            display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;
+            margin: 48px 0;
+        }
+        .stat-item {
+            background: linear-gradient(135deg, #1e1b4b, #4c1d95);
+            border-radius: 16px; padding: 28px 20px; text-align: center;
+        }
+        .stat-num { font-size: 36px; font-weight: 900; color: #fff; }
+        .stat-unit { font-size: 14px; color: rgba(255,255,255,0.6); }
+        .stat-label { font-size: 13px; color: rgba(255,255,255,0.5); margin-top: 6px; }
+
+        /* 荣誉 */
+        .honors { margin: 48px 0; }
+        .honors h3 {
+            font-size: 22px; font-weight: 800; color: #1e1b4b; margin-bottom: 24px;
+            display: flex; align-items: center; gap: 12px;
+        }
+        .honors h3::before {
+            content: ''; width: 4px; height: 24px;
+            background: linear-gradient(180deg, #4f46e5, #a855f7); border-radius: 2px;
+        }
+        .honor-tags { display: flex; flex-wrap: wrap; gap: 12px; }
+        .honor-tag {
+            background: linear-gradient(135deg, rgba(79,70,229,0.08), rgba(168,85,247,0.08));
+            border: 1px solid rgba(79,70,229,0.15); border-radius: 100px;
+            padding: 10px 20px; font-size: 14px; color: #4f46e5; font-weight: 600;
+        }
+
+        /* CTA */
+        .cta-box {
+            background: linear-gradient(135deg, #4f46e5, #7c3aed);
+            border-radius: 24px; padding: 48px; text-align: center; margin: 48px 0;
+        }
+        .cta-box h3 { font-size: 26px; font-weight: 800; color: #fff; margin-bottom: 12px; }
+        .cta-box p { font-size: 15px; color: rgba(255,255,255,0.7); margin-bottom: 24px; }
+        .cta-box a {
+            display: inline-block; background: #fff; color: #4f46e5;
+            padding: 14px 32px; border-radius: 12px; font-size: 15px; font-weight: 700;
+            transition: all 0.3s;
+        }
+        .cta-box a:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(0,0,0,0.2); }
+
+        /* 悬浮回到主页按钮 */
+        .floating-home-btn {
+            position: fixed; right: 24px; bottom: 100px; z-index: 999;
+            width: 56px; height: 56px; border-radius: 50%;
+            background: linear-gradient(135deg, #10b981, #059669);
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 4px 20px rgba(16, 185, 129, 0.4);
+            cursor: pointer; transition: all 0.3s;
+            text-decoration: none;
+        }
+        .floating-home-btn:hover {
+            transform: translateY(-4px) scale(1.05);
+            box-shadow: 0 8px 30px rgba(16, 185, 129, 0.5);
+        }
+        .floating-home-btn svg { width: 26px; height: 26px; fill: #fff; }
+
+        /* 页脚 */
+        .footer {
+            background: #0f0e2a; color: rgba(255,255,255,0.65); padding: 48px 40px 24px;
+        }
+        .footer-content { max-width: 1000px; margin: 0 auto; text-align: center; }
+        .footer-logo { font-size: 18px; font-weight: 800; color: #fff; margin-bottom: 8px; }
+        .footer-text { font-size: 13px; color: rgba(255,255,255,0.4); }
+        .footer-copy { margin-top: 24px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.07); font-size: 12px; color: rgba(255,255,255,0.3); }
+
+        /* 响应式 */
+        @media screen and (max-width: 768px) {
+            .header-inner { padding: 0 16px; height: 60px; }
+            .nav { display: none; }
+            .page-hero { padding: 120px 16px 60px; }
+            .content { padding: 48px 16px; }
+            .intro-card { padding: 28px 20px; border-radius: 16px; }
+            .stats-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
+            .stat-item { padding: 20px 16px; }
+            .stat-num { font-size: 28px; }
+            .cta-box { padding: 32px 20px; border-radius: 16px; }
+        }
+    </style>
+</head>
+<body>
+        <!-- 导航 -->
+    <header class="header" id="header">
+        <div class="header-inner">
+            <a href="/" class="logo-area">
+                <img src="./dianfeng-logo.jpg" alt="巅峰网络">
+                <div>
+                    <div class="logo-text">山东巅峰网络科技</div>
+                    <div class="logo-sub">DianFeng Network</div>
+                </div>
+            </a>
+            <nav class="nav">
+                <a href="/">首页</a>
+                <a href="/cases.html">案例中心</a>
+                <a href="/pricing.html">收费标准</a>
+                <div class="nav-item">
+                    <a href="/news.html">新闻资讯</a>
+                    <div class="nav-dropdown">
+                        <a href="/news.html">公司新闻</a>
+                        <a href="/news.html#industry-section">行业资讯</a>
+                        <a href="/news.html#promo-section">活动动态</a>
+                    </div>
+                </div>
+                <div class="nav-item">
+                    <a href="/about.html">关于我们</a>
+                    <div class="nav-dropdown">
+                        <a href="/about.html">企业简介</a>
+                        <a href="/honors.html">荣誉资质</a>
+                        <a href="/#trial" onclick="event.preventDefault(); showContactModal();">联系我们</a>
+                    </div>
+                </div>
+            </nav>
+            <div class="header-btns">
+                <button class="btn-contact" onclick="showContactModal()">商务联系</button>
+                <button class="btn-quote" onclick="showContactModal()">快速报价</button>
+            </div>
+        </div>
+    </header>
+
+    <script>
+        window.addEventListener('scroll', function() {
+            var header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    </script>
+
+    <!-- 悬浮回到主页按钮 -->
+    <a href="/" class="floating-home-btn" title="回到主页">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+        </svg>
+    </a>
+
+    <!-- 页面标题 -->
+    <section class="page-hero">
+        <h1>关于我们</h1>
+        <p>我们用专业的力量，造就专业的服务</p>
+        <div class="breadcrumb">
+            <a href="/">首页</a>
+            <span>/</span>
+            <span>关于我们</span>
+        </div>
+    </section>
+
+    <!-- 内容 -->
+    <section class="content">
+        <!-- 公司简介 -->
+        <div class="intro-card">
+            <h2>公司简介</h2>
+            <p>山东巅峰网络科技有限公司成立于<strong>2016年</strong>，注册资金<strong>800万元</strong>，同年正式入驻<strong>淘宝官方服务市场</strong>，成为官方认证的优质服务商。公司专注于电商客服外包领域，致力于为大中小电商企业提供专业、高效、优质的一站式客服解决方案。</p>
+            <p>公司服务覆盖<strong>天猫、淘宝、京东、拼多多、抖音、快手、小红书、微信视频号小店</strong>等国内主流电商平台，可为客户同时对接多个店铺、多个平台，提供售前咨询、订单处理、售后服务、客户关系维护等<strong>全流程客服服务</strong>。团队客服均经过严格专业培训，持证上岗，具备丰富的电商实战经验，能够快速响应客户需求，提升询单转化率。</p>
+            <p>公司以<strong>"我们用专业的力量，造就专业的服务"</strong>为核心价值观，以<strong>"事事回响、将心比心、天生骄傲"</strong>为企业文化。我们希望通过自身的专业水平与不懈努力，为客户创造最大价值，最大限度降低中小网店的用工成本，让每一家店铺都能以最优成本享受高品质客服服务。</p>
+            <p>深耕电商客服领域多年，山东巅峰已为超过<strong>1000家</strong>大中小电商店铺提供专业服务，快速、专业、耐心、精准的服务态度赢得了广大客户的信赖与好评，在服务市场树立了良好的品牌形象。公司不仅提供专业的外包服务，更建立了完善的售后服务体系，为客户在店铺运营过程中遇到的各类问题提供<strong>一对一的专业指导与解决方案</strong>，真正做到"服务一条龙，售后有保障"。</p>
+            <p>展望未来，山东巅峰网络科技将继续秉持专业精神，与广大电商伙伴携手共进，以服务创造价值，以专业赢得未来，共创双赢新局面！</p>
+        </div>
+
+        <!-- 巅峰风采 -->
+        <div id="team" style="text-align:center;margin-bottom:12px;margin-top:48px;">
+            <h3 style="font-size:22px;font-weight:800;color:#1e1b4b;margin-bottom:24px;">巅峰风采</h3>
+        </div>
+        <div style="text-align:center;margin-bottom:48px;">
+            <img src="./team-photo.jpg" alt="山东巅峰团队合影" style="max-width:100%;border-radius:16px;box-shadow:0 12px 40px rgba(79,70,229,0.15);">
+        </div>
+        <div style="text-align:center;margin-bottom:48px;">
+            <img src="./team-photo2.jpg" alt="山东巅峰团队" style="max-width:100%;border-radius:16px;box-shadow:0 12px 40px rgba(79,70,229,0.15);">
+        </div>
+
+        <!-- 发展历程 -->
+        <div class="intro-card">
+            <h2>发展历程</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-year">2016年</div>
+                    <div class="timeline-text">公司成立，正式入驻淘宝官方服务市场，成为官方认证服务商</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2017-2018年</div>
+                    <div class="timeline-text">服务店铺数量突破500家，业务范围扩展至天猫、京东、拼多多等平台</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2019-2020年</div>
+                    <div class="timeline-text">拓展抖音、快手、小红书等新媒体平台服务，团队规模持续扩大</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2021-2023年</div>
+                    <div class="timeline-text">服务客户超过1000家，建立完善的培训体系和售后体系</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2024年至今</div>
+                    <div class="timeline-text">持续深耕电商客服领域，以专业服务赢得客户信赖</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 数据 -->
+        <div class="stats-grid">
+            <div class="stat-item">
+                <div class="stat-num">2016</div>
+                <div class="stat-unit">年</div>
+                <div class="stat-label">公司成立</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-num">800</div>
+                <div class="stat-unit">万元</div>
+                <div class="stat-label">注册资金</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-num">1000+</div>
+                <div class="stat-unit">家</div>
+                <div class="stat-label">服务客户</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-num">8+</div>
+                <div class="stat-unit">个</div>
+                <div class="stat-label">覆盖平台</div>
+            </div>
+        </div>
+
+        <!-- 资质荣誉 -->
+        <div class="honors">
+            <h3>资质荣誉</h3>
+            <div class="honor-tags">
+                <span class="honor-tag">🏆 阿里巴巴官方认证服务商</span>
+                <span class="honor-tag">📋 淘宝服务市场认证</span>
+                <span class="honor-tag">🔒 信息安全管理体系认证</span>
+                <span class="honor-tag">⭐ 客户满意度认证</span>
+            </div>
+        </div>
+
+        <!-- 价值观 -->
+        <div class="intro-card">
+            <h2>企业文化</h2>
+            <p><strong>核心价值观：</strong>我们用专业的力量，造就专业的服务</p>
+            <p><strong>将心比心：</strong>多一份理解，少一份指责；多一份担当，少一份敷衍；多一些补台，少一点拆台</p>
+            <p><strong>事事回响：</strong>及时响应、件件着落、责任心，有始有终</p>
+            <p><strong>天生骄傲：</strong>自信工作、团队精神、追求卓越、知行合一</p>
+        </div>
+
+        <!-- CTA -->
+        <div class="cta-box">
+            <h3>期待与您合作</h3>
+            <p>专业客服外包服务，让您的店铺运营更高效</p>
+            <a href="/#trial" onclick="event.preventDefault(); showContactModal();">立即咨询 →</a>
+        </div>
+    </section>
+
+    <!-- 联系弹窗 -->
+    <div id="contactModal" style="display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,0.6);backdrop-filter:blur(4px);justify-content:center;align-items:center;padding:20px;pointer-events:none;">
+        <div style="background:#fff;border-radius:24px;padding:40px;max-width:420px;width:100%;position:relative;box-shadow:0 24px 80px rgba(0,0,0,0.2);pointer-events:auto;">
+            <button onclick="closeContactModal()" style="position:absolute;top:16px;right:16px;background:rgba(0,0,0,0.06);border:none;width:36px;height:36px;border-radius:50%;cursor:pointer;font-size:18px;display:flex;align-items:center;justify-content:center;">×</button>
+            <div style="text-align:center;display:flex;gap:16px;justify-content:center;margin-bottom:20px;">
+                <img src="./enterprise-wechat-qr.jpg" alt="企业微信二维码" style="width:160px;border-radius:12px;box-shadow:0 4px 16px rgba(79,70,229,0.2);">
+                <img src="./enterprise-wechat-qr2.jpg" alt="企业微信二维码" style="width:160px;border-radius:12px;box-shadow:0 4px 16px rgba(79,70,229,0.2);">
+            </div>
+            <div style="text-align:center;margin-top:16px;padding-top:16px;border-top:1px solid #eee;">
+                <div style="font-size:14px;color:#6b7280;margin-bottom:8px;">或致电</div>
+                <a href="tel:15169203040" style="font-size:20px;font-weight:800;color:#4f46e5;text-decoration:none;">151-6920-3040</a>
+            </div>
+        </div>
+    </div>
+    <script>
+        function showContactModal() {
+            document.getElementById('contactModal').style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+        function closeContactModal() {
+            document.getElementById('contactModal').style.display = 'none';
+            document.body.style.overflow = '';
+        }
+        document.getElementById('contactModal').addEventListener('click', function(e) {
+            if (e.target === this) closeContactModal();
+        });
+    </script>
+
+<footer class="footer" style="padding:20px 40px;text-align:center;"><div class="footer-bottom" style="border-top:1px solid rgba(255,255,255,0.1);padding-top:16px;"><span>Copyright © 2026 山东巅峰网络科技有限公司 All Rights Reserved.</span><div style="margin-top:4px;"><a href="https://beian.miit.gov.cn/" target="_blank">鲁ICP备2026024576号-1</a></div></div></footer>
+</body>
+</html>

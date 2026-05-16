@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>隐私政策 - 山东巅峰网络科技</title>
+    <meta name="description" content="山东巅峰网络科技隐私政策，说明网站在电商客服外包咨询、试用申请和业务沟通过程中的信息收集、使用与保护方式。">
+    <meta name="robots" content="index,follow">
+    <meta name="baidu-site-verification" content="codeva-sjKTwsn8Ee">
+    <link rel="canonical" href="https://dfkefu.com/privacy.html">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="隐私政策 - 山东巅峰网络科技">
+    <meta property="og:description" content="了解山东巅峰网络科技官网对咨询信息、试用申请信息和联系方式的保护方式。">
+    <meta property="og:url" content="https://dfkefu.com/privacy.html">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: "Inter", "PingFang SC", "Microsoft YaHei", sans-serif; color: #333; background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 50%, #bfdbfe 100%); background-attachment: fixed; line-height: 1.6; min-height: 100vh; }
+        a { text-decoration: none; color: inherit; }
+
+        /* 导航 */
+        .header { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(255,255,255,0.92); backdrop-filter: blur(20px) saturate(1.8); border-bottom: 1px solid rgba(0,0,0,0.06); transition: all 0.4s ease; }
+        .header.scrolled { background: rgba(255,255,255,0.97); box-shadow: 0 4px 30px rgba(0,0,0,0.08); }
+        .header-inner { max-width: 1280px; margin: 0 auto; height: 76px; display: flex; align-items: center; padding: 0 40px; }
+        .logo-area { display: flex; align-items: center; gap: 12px; }
+        .logo-area img { height: 44px; width: 44px; object-fit: contain; border-radius: 8px; margin-right: 4px; }
+        .logo-text { font-size: 18px; font-weight: 800; color: #1e1b4b; }
+        .logo-sub { font-size: 10px; color: #a5b4fc; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; }
+        .nav { flex: 1; display: flex; align-items: center; justify-content: center; gap: 36px; }
+        .nav a { font-size: 17px; font-weight: 600; color: #6b7280; transition: color 0.3s; position: relative; padding: 4px 0; }
+        .nav a:hover, .nav a.active { color: #4f46e5; }
+        .nav a::after { content: ''; position: absolute; bottom: -2px; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, #4f46e5, #a855f7); border-radius: 2px; transform: scaleX(0); transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1); }
+        .nav a:hover::after, .nav a.active::after { transform: scaleX(1); }
+        .nav-item { position: relative; }
+        .nav-dropdown { display: none; position: absolute; top: 100%; left: 50%; transform: translateX(-50%); background: #fff; border-radius: 12px; box-shadow: 0 8px 32px rgba(0,0,0,0.15); padding: 12px 0; min-width: 160px; z-index: 1000; }
+        .nav-item:hover .nav-dropdown { display: block; }
+        .nav-dropdown a { display: block; padding: 10px 20px; font-size: 14px; color: #4b5563; white-space: nowrap; transition: all 0.2s; }
+        .nav-dropdown a:hover { background: #f3f4f6; color: #4f46e5; }
+        .header-btns { display: flex; gap: 10px; }
+        .btn-contact { padding: 9px 22px; border: 1.5px solid #4f46e5; color: #4f46e5; border-radius: 10px; font-size: 13px; font-weight: 700; transition: all 0.3s; cursor: pointer; background: transparent; }
+        .btn-contact:hover { background: #4f46e5; color: #fff; }
+        .btn-quote { padding: 12px 28px; background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%); color: #fff; border-radius: 10px; font-size: 13px; font-weight: 700; border: none; cursor: pointer; transition: all 0.3s; box-shadow: 0 4px 16px rgba(79,70,229,0.3); }
+        .btn-quote:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(79,70,229,0.45); }
+
+        /* 页面标题 */
+        .page-hero { padding: 160px 40px 100px; background: linear-gradient(135deg, #1e3a5f 0%, #1e5aa8 50%, #1e6db8 100%); text-align: center; }
+        .page-hero h1 { font-size: clamp(32px, 5vw, 52px); font-weight: 900; color: #fff; margin-bottom: 16px; }
+        .page-hero p { font-size: 18px; color: rgba(255,255,255,0.6); }
+
+        /* 内容 */
+        .content { padding: 60px 40px; max-width: 800px; margin: 0 auto; }
+        .policy-card { background: #fff; border-radius: 16px; padding: 48px; box-shadow: 0 4px 24px rgba(0,0,0,0.08); }
+        .policy-card h2 { font-size: 20px; font-weight: 800; color: #1e1b4b; margin-bottom: 16px; margin-top: 32px; }
+        .policy-card h2:first-child { margin-top: 0; }
+        .policy-card p { font-size: 14px; color: #4b5563; line-height: 1.8; margin-bottom: 12px; }
+        .policy-card ul { margin-left: 20px; margin-bottom: 12px; }
+        .policy-card li { font-size: 14px; color: #4b5563; line-height: 1.8; margin-bottom: 8px; }
+        .update-time { font-size: 13px; color: #9ca3af; margin-bottom: 32px; text-align: center; }
+
+        /* 悬浮回到主页按钮 */
+        .floating-home-btn { position: fixed; right: 24px; bottom: 100px; z-index: 999; width: 56px; height: 56px; border-radius: 50%; background: linear-gradient(135deg, #10b981, #059669); display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(16, 185, 129, 0.4); cursor: pointer; transition: all 0.3s; text-decoration: none; }
+        .floating-home-btn:hover { transform: translateY(-4px) scale(1.05); box-shadow: 0 8px 30px rgba(16, 185, 129, 0.5); }
+        .floating-home-btn svg { width: 26px; height: 26px; fill: #fff; }
+
+        /* 页脚 */
+        .footer { background: #0f0e2a; color: rgba(255,255,255,0.65); padding: 40px 40px 24px; }
+        .footer-content { max-width: 1000px; margin: 0 auto; text-align: center; }
+        .footer-logo { font-size: 16px; font-weight: 700; color: #fff; margin-bottom: 8px; }
+        .footer-copy { margin-top: 20px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.06); font-size: 12px; }
+
+        @media screen and (max-width: 768px) {
+            .header-inner { padding: 0 16px; height: 60px; }
+            .nav { display: none; }
+            .page-hero { padding: 120px 16px 60px; }
+            .content { padding: 32px 16px; }
+            .policy-card { padding: 28px 20px; }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航 -->
+    <header class="header" id="header">
+        <div class="header-inner">
+            <a href="/" class="logo-area">
+                <img src="./dianfeng-logo.jpg" alt="巅峰网络">
+                <div>
+                    <div class="logo-text">山东巅峰网络科技</div>
+                    <div class="logo-sub">DianFeng Network</div>
+                </div>
+            </a>
+            <nav class="nav">
+                <a href="/">首页</a>
+                <a href="/cases.html">案例中心</a>
+                <a href="/pricing.html">收费标准</a>
+                <div class="nav-item">
+                    <a href="/news.html">新闻资讯</a>
+                    <div class="nav-dropdown">
+                        <a href="/news.html">公司新闻</a>
+                        <a href="/news.html#industry-section">行业资讯</a>
+                        <a href="/news.html#promo-section">活动动态</a>
+                    </div>
+                </div>
+                <div class="nav-item">
+                    <a href="/about.html">关于我们</a>
+                    <div class="nav-dropdown">
+                        <a href="/about.html">企业简介</a>
+                        <a href="/honors.html">荣誉资质</a>
+                        <a href="/#trial" onclick="event.preventDefault(); showContactModal();">联系我们</a>
+                    </div>
+                </div>
+            </nav>
+            <div class="header-btns">
+                <button class="btn-contact" onclick="showContactModal()">商务联系</button>
+                <button class="btn-quote" onclick="showContactModal()">快速报价</button>
+            </div>
+        </div>
+    </header>
+
+    <script>
+        window.addEventListener('scroll', function() {
+            var header = document.getElementById('header');
+            if (window.scrollY > 50) { header.classList.add('scrolled'); }
+            else { header.classList.remove('scrolled'); }
+        });
+    </script>
+
+    <!-- 悬浮回到主页按钮 -->
+    <a href="/" class="floating-home-btn" title="回到主页">
+        <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+    </a>
+
+    <!-- 页面标题 -->
+    <section class="page-hero">
+        <h1>隐私政策</h1>
+        <p>保护用户隐私，保障信息安全</p>
+    </section>
+
+    <!-- 内容 -->
+    <div class="content">
+        <div class="policy-card">
+            <p class="update-time">更新日期：2025年1月1日</p>
+
+            <h2>一、信息收集</h2>
+            <p>我们承诺尊重并保护您的个人隐私。在您使用我们的网站和服务时，我们可能会收集您主动提供的信息，包括但不限于：</p>
+            <ul>
+                <li>姓名、联系电话、电子邮箱等联系信息</li>
+                <li>店铺名称、电商平台等业务相关信息</li>
+                <li>服务咨询过程中您主动填写的表单信息</li>
+            </ul>
+
+            <h2>二、信息使用</h2>
+            <p>我们收集您的信息仅用于以下目的：</p>
+            <ul>
+                <li>为您提供专业的电商客服外包咨询服务</li>
+                <li>响应您的服务需求并提供解决方案</li>
+                <li>改进我们的网站和服务质量</li>
+                <li>与您保持沟通联系</li>
+            </ul>
+
+            <h2>三、信息保护</h2>
+            <p>我们采取严格的安全措施保护您的信息安全：</p>
+            <ul>
+                <li>采用加密技术保护数据传输安全</li>
+                <li>限制员工访问用户信息的权限</li>
+                <li>定期更新安全防护措施</li>
+                <li>承诺不会向第三方出售或泄露您的个人信息</li>
+            </ul>
+
+            <h2>四、信息共享</h2>
+            <p>除以下情况外，我们不会与任何第三方共享您的个人信息：</p>
+            <ul>
+                <li>获得您的明确同意</li>
+                <li>法律法规要求的法定披露义务</li>
+                <li>为保护我们的合法权益而必需的情况</li>
+            </ul>
+
+            <h2>五、用户权利</h2>
+            <p>您对您的个人信息享有以下权利：</p>
+            <ul>
+                <li>知情权：了解我们如何收集、使用您的信息</li>
+                <li>访问权：请求查阅我们持有的您的信息</li>
+                <li>更正权：要求更正不准确或不完整的信息</li>
+                <li>删除权：要求删除您的个人信息</li>
+            </ul>
+
+            <h2>六、联系我们</h2>
+            <p>如您对本隐私政策有任何疑问或建议，请通过以下方式联系我们：</p>
+            <ul>
+                <li>联系电话：151-6920-3040</li>
+                <li>联系邮箱：723897894@qq.com</li>
+                <li>公司地址：山东省淄博市沂源县沂源商务大厦B座12楼1207室</li>
+            </ul>
+
+            <h2>七、政策更新</h2>
+            <p>我们可能会不时更新本隐私政策。如有重大变更，我们将通过网站公告或您提供的联系方式通知您。建议您定期查阅本页面以获取最新信息。</p>
+        </div>
+    </div>
+
+    <!-- 联系弹窗 -->
+    <div id="contactModal" style="display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,0.6);backdrop-filter:blur(4px);justify-content:center;align-items:center;padding:20px;pointer-events:none;">
+        <div style="background:#fff;border-radius:24px;padding:40px;max-width:420px;width:100%;position:relative;box-shadow:0 24px 80px rgba(0,0,0,0.2);pointer-events:auto;">
+            <button onclick="closeContactModal()" style="position:absolute;top:16px;right:16px;background:rgba(0,0,0,0.06);border:none;width:36px;height:36px;border-radius:50%;cursor:pointer;font-size:18px;display:flex;align-items:center;justify-content:center;">×</button>
+            <div style="text-align:center;display:flex;gap:16px;justify-content:center;margin-bottom:20px;">
+                <img src="./enterprise-wechat-qr.jpg" alt="企业微信二维码" style="width:160px;border-radius:12px;box-shadow:0 4px 16px rgba(79,70,229,0.2);">
+                <img src="./enterprise-wechat-qr2.jpg" alt="企业微信二维码" style="width:160px;border-radius:12px;box-shadow:0 4px 16px rgba(79,70,229,0.2);">
+            </div>
+            <div style="text-align:center;margin-top:16px;padding-top:16px;border-top:1px solid #eee;">
+                <div style="font-size:14px;color:#6b7280;margin-bottom:8px;">或致电</div>
+                <a href="tel:15169203040" style="font-size:20px;font-weight:800;color:#4f46e5;text-decoration:none;">151-6920-3040</a>
+            </div>
+        </div>
+    </div>
+    <script>
+        function showContactModal() { document.getElementById('contactModal').style.display = 'flex'; document.body.style.overflow = 'hidden'; }
+        function closeContactModal() { document.getElementById('contactModal').style.display = 'none'; document.body.style.overflow = ''; }
+        document.getElementById('contactModal').addEventListener('click', function(e) { if (e.target === this) closeContactModal(); });
+    </script>
+
+<footer class="footer" style="padding:20px 40px;text-align:center;"><div class="footer-bottom" style="border-top:1px solid rgba(255,255,255,0.1);padding-top:16px;"><span>Copyright © 2026 山东巅峰网络科技有限公司 All Rights Reserved.</span><div style="margin-top:4px;"><a href="https://beian.miit.gov.cn/" target="_blank">鲁ICP备2026024576号-1</a></div></div></footer>
+</body>
+</html>
